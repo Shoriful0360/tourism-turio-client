@@ -25,11 +25,13 @@ const Banner = () => {
     };
     return (
         <div>
+
+            
           <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         pagination={{

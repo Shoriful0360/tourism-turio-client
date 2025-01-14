@@ -3,6 +3,7 @@
 const Slider = ({img,title1,title2}) => {
     return (
         <div
+        // todo: title design
         className="hero bg-cover  bg-center min-h-screen-70 w-full"
         style={{
           backgroundImage: `url(${img})`,

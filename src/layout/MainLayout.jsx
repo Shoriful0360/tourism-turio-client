@@ -10,7 +10,7 @@ const MainLayout = () => {
             <Navbar/>
            </header>
            {/* dynamic outlet */}
-           <main className='min-h-[calc(100vh-200px)]'>
+           <main className='min-h-[calc(100vh-230px)]'>
         <Outlet></Outlet>
            </main>
            <footer>
