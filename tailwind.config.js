@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        green:'#54A15D'
+      },  minHeight: {
+        'screen-70': '60vh', // 70% of the viewport height
+      },
+    },
   },
   plugins: [
     require('daisyui'),

@@ -5,8 +5,8 @@ import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => {
     return (
-        <div className='max-w-[1900px] mx-auto'>
-           <header>
+        <div className=''>
+           <header className='px-1 md:px-4'>
             <Navbar/>
            </header>
            {/* dynamic outlet */}
