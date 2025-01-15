@@ -1,22 +1,53 @@
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { CiFacebook } from 'react-icons/ci';
 import { VscGithub } from 'react-icons/vsc';
 import signUpImg from '../../assets/signUp/Animation - 1736911384438.json'
 import { useForm } from "react-hook-form"
 import Lottie from "lottie-react";
+import axios from 'axios';
+import useAxiosPublic from '../../hook/useAxiosPublic';
+import { imageUpload } from '../../utilites/ImageUpload';
+import useAuth from '../../hook/useAuth';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
+  const{createUser,user,setUser,signInWithGoogle}=useAuth()
   const navigate=useNavigate()
+  const axiosSecure=useAxiosPublic()
 
-  const {
-      register,handleSubmit,formState: { errors },} = useForm()
+
+  const {register,handleSubmit,formState: { errors },} = useForm()
 
   //   login with email and password
     const onSubmit =async (data) => {
-      console.log(data)
-  
+
+     const imageFile={image:data.photo[0]}
+      const imgUpload=await imageUpload(imageFile)
+
+
+      // console.log(data)
+      if(imgUpload){
+    createUser(data?.email,data?.password)
+    .then(res=>{
+      setUser(res.user)
+      navigate('/')
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+     
+      }
+    }
+
+    // signIn with google
+    const handleSignIn=()=>{
+      signInWithGoogle()
+      .then(()=>{
+        toast.success('SignUp is successfully')
+      navigate('/')
+      })
     }
     return (
         <div>
@@ -29,6 +60,8 @@ const SignUp = () => {
               <div className="card  flex-1 w-full max-w-md ">
                 <form  onSubmit={handleSubmit(onSubmit)}className="card-body">
                 <h1 className='text-center text-3xl font-bold'>Sign Up</h1>
+
+                {/* name */}
                 <div className="form-control w-full">
                     <label className="label ">
                       <span className="label-text text-xl">Name <span className='text-red-500'>*</span></span>
@@ -36,6 +69,7 @@ const SignUp = () => {
                     <input type="text" name='name'   {...register("name",{ required: true })} placeholder="Name"  className="input input-bordered w-full"  />
                     {errors.name && <span className='text-red-500'>name is require</span>}
                   </div>
+                  {/* email */}
                   <div className="form-control w-full">
                     <label className="label">
                       <span className="label-text text-xl">Email <span className='text-red-500'>*</span></span>
@@ -51,6 +85,7 @@ const SignUp = () => {
                     <input  {...register("photo",{ required: true })} type="file" accept='image/*' className="file-input w-full " />
                     {errors.photo?.type==='required' && <span className='text-red-500'>Please choose a photo</span>}
                   </div>
+                  {/* password */}
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text text-xl">Password <span className='text-red-500'>*</span></span>
@@ -74,7 +109,7 @@ const SignUp = () => {
                 <div className='text-center'>
                   <Link to={'/signIn'} className='text-[#D1A054] hover:cursor-pointer text-xl'>Already registered? Go to log in</Link>
                   <p className='text-xl'>Or sign in with </p>
-                   <div className='flex justify-center gap-6 mt-4 text-4xl'>
+                   <div onClick={handleSignIn} className='flex justify-center gap-6 mt-4 text-4xl'>
                             <FcGoogle></FcGoogle>
                             
                           </div>

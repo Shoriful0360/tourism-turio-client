@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../hook/useAuth";
 
 
 const Navbar = () => {
+  const {user,logOut}=useAuth()
     return (
         <div>
           <div className="navbar z-50 fixed left-0 right-0 md:px-10 mx-auto bg-base-100">
@@ -36,23 +38,30 @@ const Navbar = () => {
       </div>
     </div>
     {/* profiel dropdown  */}
-    <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+      {
+        user? <div className="dropdown dropdown-end">
+        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS Navbar component"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          </div>
         </div>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content text-green text-xl font-bold bg-white space-y-2 px-4 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+        
+          <Link><li>shoriful</li></Link>
+          <Link><li>email</li></Link>
+          <Link><li>Dashboard</li></Link>
+          <Link  onClick={logOut}>Logout</Link>
+        </ul>
       </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content space-y-2 px-4 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-      
-        <Link><li>shoriful</li></Link>
-        <Link><li>email</li></Link>
-        <Link><li>Dashboard</li></Link>
-      </ul>
-    </div>
+      :
+      <Link to={'/signIn'}><button className="btn">SignIn</button></Link>
+      }
+
+   
   </div>
 </div>
         </div>
