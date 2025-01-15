@@ -11,6 +11,11 @@ export default {
       },  minHeight: {
         'screen-70': '60vh', // 70% of the viewport height
       },
+      backgroundImage: {
+    
+        logImg: "url('./src/assets/Image/wood-grain-pattern-gray1x.png')",
+       
+      }
     },
   },
   plugins: [

@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
     return (
         <div>
-          <div className="navbar bg-base-100">
+          <div className="navbar z-50 fixed left-0 right-0 md:px-10 mx-auto bg-base-100">
   <div className="flex-1 hidden md:block ">
     <img src="https://turio-wp.b-cdn.net/wp-content/themes/turio/includes/theme-options/images/logo/header1-logo.svg" alt="" />
   </div>
@@ -46,15 +46,11 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        className="menu menu-sm dropdown-content space-y-2 px-4 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+      
+        <Link><li>shoriful</li></Link>
+        <Link><li>email</li></Link>
+        <Link><li>Dashboard</li></Link>
       </ul>
     </div>
   </div>
