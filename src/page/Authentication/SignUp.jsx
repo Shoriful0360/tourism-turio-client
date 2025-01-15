@@ -13,7 +13,7 @@ import useAuth from '../../hook/useAuth';
 import toast from 'react-hot-toast';
 
 const SignUp = () => {
-  const{createUser,user,setUser,signInWithGoogle}=useAuth()
+  const{createUser,user,setUser,signInWithGoogle,profileUpdate}=useAuth()
   const navigate=useNavigate()
   const axiosSecure=useAxiosPublic()
 
@@ -30,12 +30,16 @@ const SignUp = () => {
       // console.log(data)
       if(imgUpload){
     createUser(data?.email,data?.password)
-    .then(res=>{
-      setUser(res.user)
-      navigate('/')
+    .then(()=>{
+      profileUpdate(data?.name,imgUpload)
+      .then((result)=>{
+       console.log(result)
+        navigate('/')
+      })
+
     })
     .catch(err=>{
-      console.log(err)
+      toast.error(err.message)
     })
      
       }

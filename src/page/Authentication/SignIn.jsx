@@ -7,10 +7,13 @@ import { useEffect, useState } from 'react';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
+import useAuth from '../../hook/useAuth';
+import toast from 'react-hot-toast';
 
 
 
 const SignIn = () => {
+  const {signInWithGoogle,userSignIn}=useAuth()
     const [visible,setVisible]=useState(true)
 
 const navigate=useNavigate()
@@ -27,14 +30,25 @@ const from=location.state?.from?.pathname || '/'
     const form=e.target;
     const email=form.email.value;
     const password=form.password.value;
-
-   
-
+    userSignIn(email,password)
+    .then(()=>{
+     toast.success('signUp is successfully')
+     navigate(from)
+    })
+    .then (err=>{
+      toast.error(err?.message)
+    })
   }
 
   // login with google
 
-
+const handleGogleLogin=()=>{
+  signInWithGoogle()
+  .then(()=>{
+    toast.success('signIn is Success')
+    navigate(from)
+  })
+}
   // validate captcha
   const handleCaptcha=(value)=>{
 
@@ -87,10 +101,9 @@ if (validateCaptcha(value)==true) {
       <div className='text-center'>
         <Link to={'/signUp'} className='text-[#D1A054] hover:cursor-pointer text-xl'>New here? Create a New Account</Link>
         <p className='text-xl'>Or sign in with </p>
-        <div className='flex justify-center gap-6 mt-4 text-4xl'>
-          <FcGoogle o></FcGoogle>
-          <CiFacebook />
-          <VscGithub />
+        <div onClick={handleGogleLogin} className='flex justify-center gap-6 mt-4 text-4xl'>
+          <FcGoogle ></FcGoogle>
+        
         </div>
       </div>
     </div>
