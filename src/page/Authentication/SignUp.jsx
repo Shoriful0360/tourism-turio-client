@@ -72,12 +72,11 @@ const SignUp = () => {
                   </div>
                 </form>
                 <div className='text-center'>
-                  <Link to={'/login'} className='text-[#D1A054] hover:cursor-pointer text-xl'>Already registered? Go to log in</Link>
+                  <Link to={'/signIn'} className='text-[#D1A054] hover:cursor-pointer text-xl'>Already registered? Go to log in</Link>
                   <p className='text-xl'>Or sign in with </p>
                    <div className='flex justify-center gap-6 mt-4 text-4xl'>
                             <FcGoogle></FcGoogle>
-                            <CiFacebook />
-                            <VscGithub />
+                            
                           </div>
                 </div>
               </div>
