@@ -11,6 +11,8 @@ import Location from "../component/PackageDetails/Location/Location";
 import Gallery from "../component/PackageDetails/Gallery/Gallery";
 
 import DashboardLayout from "../layout/DashboardLayout";
+import Profile from "../page/Dashboard/Common/Profile";
+import AuthPrivate from "../Private/AuthPrivate";
 
 
 export const router=createBrowserRouter([
@@ -54,7 +56,13 @@ export const router=createBrowserRouter([
 },
 {
     path:'dashboard',
-    element:<DashboardLayout/>
+    element:<AuthPrivate><DashboardLayout/></AuthPrivate>,
+    children:[
+        {
+            path:'dashboard/profile',
+            element:<Profile/>
+        }
+    ]
 },
 {
     path:'signIn',

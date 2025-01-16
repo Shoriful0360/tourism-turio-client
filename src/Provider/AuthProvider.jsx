@@ -73,7 +73,7 @@ useEffect(()=>{
 
 
     const authInfo={
-        user,createUser,setUser,signInWithGoogle,logOut,profileUpdate,userSignIn
+        user,createUser,setUser,signInWithGoogle,logOut,profileUpdate,userSignIn,loading,setLoading
     }
     return (
         <div>

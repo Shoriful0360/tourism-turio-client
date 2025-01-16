@@ -4,10 +4,10 @@ import Sidebar from "../component/dashboard/sidebar/Sidebar";
 
 const DashboardLayout = () => {
     return (
-        <div className=" min-h-screen md:flex bg-white">
+        <div className=" min-h-screen  md:flex bg-white">
            {/* side bard */}
            <Sidebar/>
-           <div className="flex-1 p-5 md:ml-60">
+           <div className="flex-1 p-10 md:ml-60">
             {/* outlet for daynamic content */}
             <Outlet/>
            </div>

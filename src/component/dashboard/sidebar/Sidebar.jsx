@@ -6,15 +6,17 @@ import TourGuideMenu from "./Menu/TourGuideMenu";
 import TouristMenu from "./Menu/TouristMenu";
 import ProfileMenu from "./Menu/ProfileMenu";
 import { GrLogout } from 'react-icons/gr'
+import useAuth from "../../../hook/useAuth";
 
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false)
+    const {logOut}=useAuth()
     const handleToggle = () => {
         setActive(!isActive)
       }
     return (
-        <>
+        <div className="">
         {/* small screen navbar */}
             <div className='bg-gray-100 text-gray-800 flex justify-between md:hidden'>
         <div>
@@ -41,7 +43,7 @@ const Sidebar = () => {
 
 {/* sidebar */}
 <div 
-className={`z-10 md:fixed flex flex-col justify-between  bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 overflow-x-hidden transform ${isActive && '-translate-x-full'} md:translate-x-0  transition duration-200 ease-in-out  `}>
+className={`z-10 md:fixed flex flex-col  justify-between  bg-gray-100 w-64 space-y-6 px-4 py-4 absolute inset-y-0 left-0 overflow-x-hidden transform ${isActive && '-translate-x-full'} md:translate-x-0  transition duration-200 ease-in-out  `}>
   {/* logo */}
 <div>
 <div className='w-fullmd:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-lime-100 mx-auto '>
@@ -71,13 +73,14 @@ className={`z-10 md:fixed flex flex-col justify-between  bg-gray-100 w-64 space-
             {/* profile */}
             <ProfileMenu/>
             <button
+            onClick={logOut}
             className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors transform duration-300 ">
             <GrLogout className='w-5 h-5' />
             <span className="mx-4 font-medium'">  Logout</span>
             </button>
 </div>
 </div>
-        </>
+        </div>
     );
 };
 
