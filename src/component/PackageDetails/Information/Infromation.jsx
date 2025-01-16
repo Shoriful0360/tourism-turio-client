@@ -1,9 +1,12 @@
 import { MdOutlineWatchLater } from "react-icons/md";
 import { FaUserGroup } from "react-icons/fa6";
 import { FaGripfire } from "react-icons/fa";
+
 const Infromation = () => {
     return (
-        <div className="mt-10 px-2 space-y-2">
+        <div className="">
+    
+            <div className=" px-2  space-y-2">
       <div className="flex justify-between">
       <h1 className="text-3xl font-bold font-serif  uppercase">  title</h1>
       <h1><span className="text-lg font-semibold">$330</span><small className="text-gray-500 ">/per person</small></h1>
@@ -32,12 +35,37 @@ Enthusiastically aggregate e-business alignments for progressive potentialities.
         <div className="mt-4">
         <div className="divider"></div>
         <div className="flex justify-between">
-            <h1 className="text-2xl font-semibold">Departure/Return Location</h1>
-            <p className="text-gray-500 font-semibold text-xl">Rangamati,Bangladesh</p>
+            <h1 className="text-2xl font-semibold">Departure Time</h1>
+            <p className="text-gray-500 font-semibold text-xl">	Please arrive by 9:15 AM for a departure at 9:30 AM</p>
         </div> 
         <div className="divider"></div>
+ 
+        <div className="flex justify-between">
+            <h1 className="text-2xl font-semibold">Return Time</h1>
+            <p className="text-gray-500 font-semibold text-xl">	Approximately 8:30 PM</p>
+        </div> 
+     
+        <div className="divider"></div>
+        <div className="flex justify-between">
+            <h1 className="text-2xl font-semibold">Dress Code</h1>
+            <p className="text-gray-500 font-semibold text-xl">	Lorem ipsum dolor sit amet, consectetur adipiscing elith</p>
+        </div> 
+   
+        <div className="divider"></div>
+
+        {/* to do include */}
+        {/* <div className="flex justify-between">
+            <h1 className="text-2xl font-semibold">Include</h1>
+            <p className="text-gray-500 font-semibold text-xl">Rangamati,Bangladesh</p>
+        </div>  */}
+   
         </div>
         </div>
+
+    
+      
+        </div>
+        
     );
 };
 

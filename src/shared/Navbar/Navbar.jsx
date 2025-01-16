@@ -6,7 +6,7 @@ const Navbar = () => {
   const {user,logOut}=useAuth()
     return (
         <div>
-          <div className="navbar z-50 fixed left-0 right-0 md:px-10 mx-auto bg-base-100">
+          <div className="navbar top-0 z-50 fixed left-0 right-0 md:px-10 mx-auto bg-base-100">
   <div className="flex-1 hidden md:block ">
     <img src="https://turio-wp.b-cdn.net/wp-content/themes/turio/includes/theme-options/images/logo/header1-logo.svg" alt="" />
   </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
         
           <Link><li>{user?.displayName}</li></Link>
           <Link><li>{user?.email}</li></Link>
-          <Link><li>Dashboard</li></Link>
+          <Link to={'dashboard'}><li>Dashboard</li></Link>
           <Link  onClick={logOut}>Logout</Link>
         </ul>
       </div>

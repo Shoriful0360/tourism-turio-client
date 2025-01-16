@@ -10,6 +10,8 @@ import TourPlan from "../component/PackageDetails/Tourplan/TourPlan";
 import Location from "../component/PackageDetails/Location/Location";
 import Gallery from "../component/PackageDetails/Gallery/Gallery";
 
+import DashboardLayout from "../layout/DashboardLayout";
+
 
 export const router=createBrowserRouter([
 {
@@ -42,12 +44,17 @@ export const router=createBrowserRouter([
                     element:<Gallery/>
                 }
             ]
-        }
+        },
+      
     ]
 },
 {
     path:'signUp',
     element:<SignUp/>
+},
+{
+    path:'dashboard',
+    element:<DashboardLayout/>
 },
 {
     path:'signIn',
