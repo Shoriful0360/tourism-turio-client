@@ -1,5 +1,6 @@
 import { BsStopwatch } from "react-icons/bs";
 import { IoIosAirplane } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 
 const Package = () => {
@@ -27,7 +28,7 @@ Discover Serenity, Exploration, and Enlightenment.</h2>
     </div>
 
     <div>
-        <button className="btn bg-green text-white">Book A Trip <IoIosAirplane /></button>
+       <Link to={'/package-details'}> <button className="btn bg-green text-white">Book A Trip <IoIosAirplane /></button></Link>
     </div>
 </div>
     

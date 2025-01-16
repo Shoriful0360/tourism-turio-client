@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCY5oSjJBq_PDLjPX89azCja-e3xHXKHRE",
-  authDomain: "travel-and-tourism-3987f.firebaseapp.com",
-  projectId: "travel-and-tourism-3987f",
-  storageBucket: "travel-and-tourism-3987f.firebasestorage.app",
-  messagingSenderId: "924242958018",
-  appId: "1:924242958018:web:3110e3a4dbeaaba0a10d5b"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
