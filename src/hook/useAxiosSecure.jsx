@@ -5,7 +5,7 @@ import useAuth from "./useAuth";
 
 
 const instant=axios.create({
-    baseURL:'http://localhost:5000'
+    baseURL:'http://localhost:9000'
 })
 
 const useAxiosSecure = () => {
@@ -26,10 +26,10 @@ const useAxiosSecure = () => {
             const status=error.response.status
             if(status===401 || status===403){
                 logOut()
-                navigate('/logIn')
+                navigate('/signIn')
             }
         })
-    },[logOut])
+    },[logOut,navigate])
     return instant
 };
 

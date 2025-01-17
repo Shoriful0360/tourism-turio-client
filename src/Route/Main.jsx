@@ -13,6 +13,7 @@ import Gallery from "../component/PackageDetails/Gallery/Gallery";
 import DashboardLayout from "../layout/DashboardLayout";
 import Profile from "../page/Dashboard/Common/Profile";
 import AuthPrivate from "../Private/AuthPrivate";
+import ManageProfile from "../page/Dashboard/Admin/ManageProfile";
 
 
 export const router=createBrowserRouter([
@@ -55,11 +56,18 @@ export const router=createBrowserRouter([
     element:<SignUp/>
 },
 {
-    path:'dashboard',
+    path:'/dashboard',
     element:<AuthPrivate><DashboardLayout/></AuthPrivate>,
     children:[
         {
-            path:'dashboard/profile',
+            path:'manage-profile',
+            element:<ManageProfile/>
+        },
+
+
+        // common router
+        {
+            path:'profile',
             element:<Profile/>
         }
     ]

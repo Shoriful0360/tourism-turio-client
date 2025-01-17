@@ -6,6 +6,7 @@ import useAuth from "../hook/useAuth";
 const AuthPrivate = ({children}) => {
     const location=useLocation()
     const {user,loading}=useAuth()
+
     if(loading) return <LoadingSpinner/>
     if(user) return children
     return (

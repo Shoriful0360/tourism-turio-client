@@ -4,12 +4,13 @@ import { auth } from "../Firebase/firebase.init";
 import useAxiosPublic from "../hook/useAxiosPublic";
 
 
+
 export const authContext=createContext()
 
 const AuthProvider = ({children}) => {
 const [user,setUser]=useState()
 const axiosPublic=useAxiosPublic()
-const [loading,setLoading]=useState(false)
+const [loading,setLoading]=useState(true)
 
 // create user
 const createUser=(email,password)=>{
@@ -47,13 +48,21 @@ useEffect(()=>{
     const unSubscripe=onAuthStateChanged(auth,async(currentUser)=>{
         if(currentUser?.email){
             setUser(currentUser)
-        
+        setLoading(false)
             await axiosPublic.post('/jwt',{email:user?.email})
                 .then(res=>{
                     if(res.data.token){
                         localStorage.setItem('token',res.data.token)
                         setLoading(false)
                     }
+                })
+               
+
+                // user save in database
+                await axiosPublic.post(`/user/${currentUser?.email}`,{
+                    name:currentUser?.displayName,
+                    email:currentUser?.email,
+                    image:currentUser?.photoURL
                 })
             
 

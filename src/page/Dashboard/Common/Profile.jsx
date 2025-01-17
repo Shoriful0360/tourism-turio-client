@@ -8,9 +8,10 @@ const Profile = () => {
     return (
         <div className='flex justify-center items-center h-screen'>
         <Helmet>
-          <title>Profile</title>
+          <title>Dashboard | Profile</title>
         </Helmet>
         <div className='bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-3/5'>
+        <h1 className="text-center text-xl">Wellcome</h1>
           <img
             alt='cover photo'
             src='https://i.ibb.co.com/dGxfS36/Natural-Facebook-Cover-Photo.jpg'
@@ -26,7 +27,7 @@ const Profile = () => {
             </a>
   
             <p className='p-2 px-4 text-xs text-white bg-lime-500 rounded-full'>
-              {'customer'}
+              {'Tourist'}
             </p>
             <p className='mt-2 text-xl font-medium text-gray-800 '>
               User Id: {user?.uid}
