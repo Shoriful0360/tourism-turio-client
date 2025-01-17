@@ -1,10 +1,31 @@
+import { useState } from "react";
 import LoadingSpinner from "../../../component/loading/LoadingSpinner";
+import UpdateProfileModal from "../../../component/modal/UpdateProfileModal";
 import useAuth from "../../../hook/useAuth";
 import { Helmet } from 'react-helmet-async'
-
+import Swal from 'sweetalert2'
 const Profile = () => {
-    const {user,loading}=useAuth()
+    const {user,loading,resetPassword}=useAuth()
+    const [isOpen, setIsOpen] = useState(false)
     if(loading) return <LoadingSpinner/>
+
+    const handleResetPassword=async()=>{
+  resetPassword(user?.email)
+ 
+      Swal.fire({
+        title: "Request send your email ,Please check your email",
+        width: 600,
+        padding: "3em",
+        color: "#716add",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("/images/nyan-cat.gif")
+          left top
+          no-repeat
+        `
+      });
+    }
     return (
         <div className='flex justify-center items-center h-screen'>
         <Helmet>
@@ -46,12 +67,14 @@ const Profile = () => {
                 </p>
   
                 <div>
-                  <button className='bg-lime-500 px-10 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800 block mb-1'>
+                  <button onClick={()=>setIsOpen(true)} className='bg-lime-500 px-10 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800 block mb-1'>
                     Update Profile
                   </button>
-                  <button className='bg-lime-500 px-7 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800'>
+                  <button onClick={handleResetPassword} className='bg-lime-500 px-7 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800'>
                     Change Password
                   </button>
+
+                  <UpdateProfileModal isOpen={isOpen} setIsOpen={setIsOpen}/>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import {   createContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase.init";
 import useAxiosPublic from "../hook/useAxiosPublic";
@@ -37,6 +37,12 @@ setLoading(true)
 return updateProfile(auth.currentUser,{
     displayName:name,photoURL:imageUrl
 })
+}
+
+// reset password
+const resetPassword=(email)=>{
+  
+    return sendPasswordResetEmail(auth,email)
 }
 
 // signout 
@@ -82,7 +88,7 @@ useEffect(()=>{
 
 
     const authInfo={
-        user,createUser,setUser,signInWithGoogle,logOut,profileUpdate,userSignIn,loading,setLoading
+        user,createUser,setUser,signInWithGoogle,logOut,profileUpdate,userSignIn,loading,setLoading,resetPassword
     }
     return (
         <div>

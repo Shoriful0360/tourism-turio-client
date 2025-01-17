@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import toast from 'react-hot-toast';
+import UpdateProfileModal from '../../modal/UpdateProfileModal';
 
 
 const UserDateRow = ({userData,idx,refetch}) => {
     const {email,role,image,name,status,_id}=userData || {}
+   
     const axiosSecure=useAxiosSecure()
 
 
@@ -67,6 +69,7 @@ const handleUpdateRole=async(value)=>{
 
       
       </tr>
+     
         </>
     );
 };
