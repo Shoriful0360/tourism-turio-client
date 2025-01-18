@@ -1,6 +1,6 @@
 
 
-const Location = () => {
+const Location = ({item}) => {
     return (
         <div>
            location 

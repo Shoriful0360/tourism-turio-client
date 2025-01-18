@@ -1,5 +1,5 @@
 
-const TourPlan = () => {
+const TourPlan = ({item}) => {
     return (
         <div className="">
    <h1>Tour Plan</h1> 

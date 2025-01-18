@@ -9,6 +9,7 @@ export const authContext=createContext()
 
 const AuthProvider = ({children}) => {
 const [user,setUser]=useState()
+const [packageItem,setPackageItem]=useState({})
 const axiosPublic=useAxiosPublic()
 const [loading,setLoading]=useState(true)
 
@@ -88,8 +89,8 @@ useEffect(()=>{
 
 
     const authInfo={
-        user,createUser,setUser,signInWithGoogle,logOut,profileUpdate,userSignIn,loading,setLoading,resetPassword
-    }
+        user,createUser,setUser,signInWithGoogle,logOut,profileUpdate,userSignIn,loading,setLoading,resetPassword,setPackageItem,packageItem
+    } 
     return (
         <div>
            <authContext.Provider value={authInfo}>
