@@ -14,6 +14,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Profile from "../page/Dashboard/Common/Profile";
 import AuthPrivate from "../Private/AuthPrivate";
 import ManageProfile from "../page/Dashboard/Admin/ManageProfile";
+import AddPackage from "../page/Dashboard/Admin/AddPackage";
 
 
 export const router=createBrowserRouter([
@@ -59,12 +60,18 @@ export const router=createBrowserRouter([
     path:'/dashboard',
     element:<AuthPrivate><DashboardLayout/></AuthPrivate>,
     children:[
+
+        // admin route start
         {
             path:'manage-profile',
             element:<ManageProfile/>
         },
+        {
+            path:'add-package',
+            element:<AddPackage/>
+        },
 
-
+// admin route end
         // common router
         {
             path:'profile',
