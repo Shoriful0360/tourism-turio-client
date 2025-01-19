@@ -7,7 +7,6 @@ import { NavLink } from 'react-router-dom';
 const TouristMenu = () => {
     return (
         <div>
- <NavLink to={'/dashboard/tourist/manage-profile'}> <button className='flex  items-center gap-3 ml-4'> <MdManageAccounts className='text-green'/><span>Manage Profile</span></button> </NavLink>
          <NavLink to={'/dashboard/tourist/my-booking'}> <button className='flex  mt-2 items-center gap-3 ml-4'> <SiMyget  className='text-green'/><span>My Booking</span></button> </NavLink>
          <NavLink to={'/dashboard/tourist/add-story'}> <button className='flex mt-2 items-center gap-3 ml-4'> <MdLibraryAdd  className='text-green'/><span>Add Story</span></button> </NavLink>
          <NavLink to={'/dashboard/tourist/manage-stories'}> <button className='flex mt-2 items-center gap-3 ml-4'> <IoSettings  className='text-green'/><span>Manage Stories</span></button> </NavLink>

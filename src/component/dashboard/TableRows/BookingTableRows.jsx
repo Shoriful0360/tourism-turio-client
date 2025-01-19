@@ -62,18 +62,19 @@ const BookingTableRows = ({idx,booking,refetch}) => {
    <td>
     {totalPrice}
    </td>
-   <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+   <td className='px-5 py-5 border-b   border-gray-200 bg-white text-sm'>
+   
  {
    status?
-    <p className={`${status ==='Pending'?'text-yellow-400':'text-green '}whitespace-no-wrap`}>{status}</p>
+    <p className={` ${status==='Pending'?'text-yellow-400' :'text-green'} whitespace-no-wrap`}>{status}</p>
    :
    <p className='text-red-500'>Unavilable</p>
  }
  </td>
 
- <td>pay</td>
- <td onClick={handleCancelBooking}>
- <GiCancel className="bg-red-700 p-1 text-xl w-7 h-7 rounded-sm text-white" />
+ <td className="cursor-pointer">pay</td>
+ <td  >
+<button onClick={handleCancelBooking} disabled={status !=="Pending"}> <GiCancel disab className="bg-red-700  p-1 text-xl w-7 h-7 rounded-sm text-white" /></button>
  </td>
  </tr>
 

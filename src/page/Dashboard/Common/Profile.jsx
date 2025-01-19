@@ -4,6 +4,7 @@ import UpdateProfileModal from "../../../component/modal/UpdateProfileModal";
 import useAuth from "../../../hook/useAuth";
 import { Helmet } from 'react-helmet-async'
 import Swal from 'sweetalert2'
+import { Link } from "react-router-dom";
 const Profile = () => {
     const {user,loading,resetPassword}=useAuth()
     const [isOpen, setIsOpen] = useState(false)
@@ -53,6 +54,7 @@ const Profile = () => {
             <p className='mt-2 text-xl font-medium text-gray-800 '>
               User Id: {user?.uid}
             </p>
+        <Link to={'/dashboard/tourist/join-tour-guide'}><button className="p-2 text-white mt-2 bg-lime-500 rounded-md">Join as Tour Guide</button></Link>
             <div className='w-full p-2 mt-4 rounded-lg'>
               <div className='flex flex-wrap items-center justify-between text-sm text-gray-600 '>
                 <p className='flex flex-col'>
