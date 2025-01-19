@@ -18,7 +18,6 @@ const axiosPublic=useAxiosPublic()
   })
 
   if(isLoading) return <LoadingSpinner/>
-  console.log(packages)
     return (
         <div className='mt-10 px-3 md:px-10'>
             <h1 className="text-2xl font-black text-center uppercase">tourism & travel guide</h1>

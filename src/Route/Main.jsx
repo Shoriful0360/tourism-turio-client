@@ -21,6 +21,11 @@ import ManageTouristProfile from "../page/Dashboard/Tourist/ManageTouristProfile
 import TouristAddStories from "../page/Dashboard/Tourist/TouristAddStories";
 import TouristMangeStories from "../page/Dashboard/Tourist/TouristMangeStories";
 import JoinTourGuide from "../page/Dashboard/Tourist/JoinTourGuide";
+import ManageCandidates from "../page/Dashboard/Admin/ManageCandidates";
+import AdminAddStories from "../page/Dashboard/Admin/AdminAddStories";
+import MyGuideTour from "../page/Dashboard/Guide/MyGuideTour";
+import GuideAddStories from "../page/Dashboard/Guide/GuideAddStories";
+import GuideManageStories from "../page/Dashboard/Guide/GuideManageStories";
 
 
 export const router=createBrowserRouter([
@@ -73,8 +78,8 @@ export const router=createBrowserRouter([
 
         // admin route start
         {
-            path:'manage-profile',
-            element:<ManageProfile/>
+            path:'manage-candidates',
+            element:<ManageCandidates/>
         },
         {
             path:'add-package',
@@ -83,6 +88,10 @@ export const router=createBrowserRouter([
         {
          path:'my-tour',
          element:<MyAssignedTour/>
+        },
+        {
+         path:'add-story',
+         element:<AdminAddStories/>
         },
 
 // admin route end
@@ -109,6 +118,22 @@ path:'tourist/join-tour-guide',
 element:<JoinTourGuide/>
 },
 // End tourist route 
+
+{
+    path:'guide/my-assigned-tour',
+    element:<MyGuideTour/>
+    },
+    {
+    path:'guide/add-story',
+    element:<GuideAddStories/>
+    },
+    {
+    path:'guide/manage-stories',
+    element:<GuideManageStories/>
+    },
+// guide route start
+
+// guide route end
         // common router
         {
             path:'profile',

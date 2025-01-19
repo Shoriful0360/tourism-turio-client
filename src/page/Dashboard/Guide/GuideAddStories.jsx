@@ -1,23 +1,16 @@
 import  { useState } from 'react';
 import { shortImageName } from "../../../utilites/shortImgName";
-import { imageUpload } from '../../../utilites/ImageUpload';
-const TouristAddStories = () => {
+
+const GuideAddStories = () => {
+  
     const [imgUpload,setImgUpload]=useState({
         image:{name:'upload Image'}
     })
     const handleSubmitForm=()=>{
 
     }
-
-    // handle image uploadi
-
-    const handleImageUpload=async(file)=>{
-const imageUrl=await imageUpload(file)
-setImgUpload(imageUrl)
-    }
-    console.log(imageUpload)
     return (
-       <div className='w-full min-h-[calc(100vh-40px)] max-w-2xl mx-auto flex flex-col justify-center  text-gray-800 rounded-xl bg-gray-50'>
+        <div className='w-full min-h-[calc(100vh-40px)] max-w-2xl mx-auto flex flex-col justify-center  text-gray-800 rounded-xl bg-gray-50'>
                     <form onSubmit={handleSubmitForm} >
                       <div className=''>
                        <h1 className='text-center text-2xl font-bold underline text-green my-2'>Add Story</h1>
@@ -43,7 +36,7 @@ setImgUpload(imageUrl)
                                             <label>
                                               <input
                                               onChange={(e)=> 
-                                                handleImageUpload({
+                                                setImgUpload({
                                                   image:e.target.files[0],
                                                 url:URL.createObjectURL(e.target.files[0])
                                                 })}
@@ -67,7 +60,7 @@ setImgUpload(imageUrl)
                                           imgUpload && imgUpload?.image?.size &&(
                                             <div className='flex gap-5 items-center'>
                                             <img className='w-20' src={imgUpload?.url} alt='' />
-                                            {/* <p>Image Size: {imgUpload?.image?.size} Bytes</p> */}
+                                            <p>Image Size: {imgUpload?.image?.size} Bytes</p>
                                           </div>
                                         )
                                         }
@@ -98,4 +91,4 @@ setImgUpload(imageUrl)
     );
 };
 
-export default TouristAddStories;
+export default GuideAddStories;

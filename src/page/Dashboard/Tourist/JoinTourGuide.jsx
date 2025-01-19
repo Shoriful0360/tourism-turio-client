@@ -2,6 +2,7 @@
 import useAuth from '../../../hook/useAuth';
 import useAxiosPublic from '../../../hook/useAxiosPublic';
 import Swal from 'sweetalert2'
+import toast from 'react-hot-toast'
 
 const JoinTourGuide = () => {
   const {user}=useAuth()
@@ -12,7 +13,7 @@ e.preventDefault()
 const form=e.target;
 const cv=form.url.value;
 const description=form.description.value;
-const formData={cv,description,email:user?.email}
+const formData={cv,description,email:user?.email,name:user?.displayName}
 try{
  await axiosPublic.post('/application',formData)
  Swal.fire({
@@ -22,9 +23,12 @@ try{
   showConfirmButton: false,
   timer: 1500
 });
+
   
 }catch(err){
-  console.log(err.response.data.message)
+  toast.error(err.response.data.message)
+}finally{
+  form.reset()
 }
   }
     return (

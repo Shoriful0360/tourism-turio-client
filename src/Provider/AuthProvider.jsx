@@ -56,7 +56,7 @@ useEffect(()=>{
         if(currentUser?.email){
             setUser(currentUser)
         setLoading(false)
-            await axiosPublic.post('/jwt',{email:user?.email})
+            await axiosPublic.post('/jwt',{email:currentUser?.email})
                 .then(res=>{
                     if(res.data.token){
                         localStorage.setItem('token',res.data.token)
@@ -76,7 +76,7 @@ useEffect(()=>{
         }
         else{
             setUser(currentUser)
-            if(!loading){
+            if(!loading || !currentUser){
                 localStorage.removeItem('token')
                 setLoading(false)
             }
