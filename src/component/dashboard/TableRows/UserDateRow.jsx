@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import toast from 'react-hot-toast';
-import UpdateProfileModal from '../../modal/UpdateProfileModal';
 
 
-const UserDateRow = ({userData,idx,refetch}) => {
+
+const UserDateRow = ({userData,idx,refetch ,filter,search}) => {
     const {email,role,image,name,status,_id}=userData || {}
-   
     const axiosSecure=useAxiosSecure()
+
 
 
 const handleUpdateRole=async(value)=>{
@@ -33,7 +33,7 @@ const handleUpdateRole=async(value)=>{
               <div className="mask mask-squircle h-12 w-12">
                 <img
                   src={image}
-                  alt="Avatar Tailwind CSS Component" />
+                  alt="Image" />
               </div>
             </div>
             <div>
@@ -62,7 +62,7 @@ const handleUpdateRole=async(value)=>{
         className=" border-2 p-1  w-20 ">
   <option disabled  defaultValue={role} >{role}</option>
   <option value={'Tourist'}>Tourist</option>
-  <option value={'Guider'}>Guider</option>
+  <option value={'Guide'}>Guide</option>
   <option value={'Admin'}>Admin</option>
 </select>
         </td>

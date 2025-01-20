@@ -15,7 +15,7 @@ import Profile from "../page/Dashboard/Common/Profile";
 import AuthPrivate from "../Private/AuthPrivate";
 
 import AddPackage from "../page/Dashboard/Admin/AddPackage";
-import MyAssignedTour from "../page/Dashboard/Admin/MyAssignedTour";
+
 import TouristBooking from "../page/Dashboard/Tourist/TouristBooking";
 import ManageTouristProfile from "../page/Dashboard/Tourist/ManageTouristProfile";
 import TouristAddStories from "../page/Dashboard/Tourist/TouristAddStories";
@@ -23,13 +23,13 @@ import TouristMangeStories from "../page/Dashboard/Tourist/TouristMangeStories";
 import JoinTourGuide from "../page/Dashboard/Tourist/JoinTourGuide";
 import ManageCandidates from "../page/Dashboard/Admin/ManageCandidates";
 import AdminAddStories from "../page/Dashboard/Admin/AdminAddStories";
-import MyGuideTour from "../page/Dashboard/Guide/MyGuideTour";
 import GuideAddStories from "../page/Dashboard/Guide/GuideAddStories";
 import GuideManageStories from "../page/Dashboard/Guide/GuideManageStories";
 import AdminPrivate from "../Private/AdminPrivate";
 import GuidePrivate from "../Private/GuidePrivate";
 import AdminManageStory from "../page/Dashboard/Admin/AdminManageStory";
 import ManageUser from "../page/Dashboard/Admin/ManageUser";
+import MyAssignedTour from "../page/Dashboard/Guide/MyAssignedTour";
 
 
 export const router=createBrowserRouter([
@@ -97,10 +97,10 @@ export const router=createBrowserRouter([
             path:'add-package',
             element:<AdminPrivate><AddPackage/></AdminPrivate>
         },
-        {
-         path:'my-tour',
-         element:<AdminPrivate><MyAssignedTour/></AdminPrivate>
-        },
+        // {
+        //  path:'my-tour',
+        //  element:<AdminPrivate></AdminPrivate>
+        // },
         {
          path:'add-story',
          element:<AdminPrivate><AdminAddStories/></AdminPrivate>
@@ -133,7 +133,7 @@ element:<JoinTourGuide/>
 // guide route start
 {
     path:'guide/my-assigned-tour',
-    element:<GuidePrivate><MyGuideTour/></GuidePrivate>
+    element:<GuidePrivate><MyAssignedTour/></GuidePrivate>
     },
     {
     path:'guide/add-story',

@@ -9,13 +9,12 @@ const useRole = () => {
     const{user,loading}=useAuth()
     const {data:role,isLoading}=useQuery({
         queryKey:['role',user?.email],
-        enabled:!loading && !!user?.email,
+        enabled:!!user,
         queryFn:async()=>{
             const {data}=await axiosSecure.get(`/user/role/${user?.email}`)
             return(data)
         }
     })
-   if(isLoading) return <LoadingSpinner/>
     return {role,isLoading}
 };
 

@@ -55,7 +55,7 @@ useEffect(()=>{
     const unSubscripe=onAuthStateChanged(auth,async(currentUser)=>{
         if(currentUser?.email){
             setUser(currentUser)
-        setLoading(false)
+        // setLoading(false)
             await axiosPublic.post('/jwt',{email:currentUser?.email})
                 .then(res=>{
                     if(res.data.token){
