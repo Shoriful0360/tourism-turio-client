@@ -28,6 +28,7 @@ import GuideAddStories from "../page/Dashboard/Guide/GuideAddStories";
 import GuideManageStories from "../page/Dashboard/Guide/GuideManageStories";
 import AdminPrivate from "../Private/AdminPrivate";
 import GuidePrivate from "../Private/GuidePrivate";
+import AdminManageStory from "../page/Dashboard/Admin/AdminManageStory";
 
 
 export const router=createBrowserRouter([
@@ -82,6 +83,10 @@ export const router=createBrowserRouter([
         {
             path:'manage-candidates',
             element:<AdminPrivate><ManageCandidates/></AdminPrivate>
+        },
+        {
+            path:'manage-story',
+            element:<AdminPrivate><AdminManageStory/></AdminPrivate>
         },
         {
             path:'add-package',
