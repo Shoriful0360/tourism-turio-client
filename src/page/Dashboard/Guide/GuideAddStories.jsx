@@ -5,13 +5,15 @@ import useAuth from '../../../hook/useAuth';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import useRole from '../../../hook/useRole';
 
 const GuideAddStories = () => {
+  const{role}=useRole()
   const {user}=useAuth()
   const axiosSecure=useAxiosSecure()
   const [images, setImages] = useState([]);
   const navigate=useNavigate()
-
+console.log(role)
     
     const handleSubmitForm=async(e)=>{
 e.preventDefault()

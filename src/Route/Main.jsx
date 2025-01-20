@@ -26,6 +26,8 @@ import AdminAddStories from "../page/Dashboard/Admin/AdminAddStories";
 import MyGuideTour from "../page/Dashboard/Guide/MyGuideTour";
 import GuideAddStories from "../page/Dashboard/Guide/GuideAddStories";
 import GuideManageStories from "../page/Dashboard/Guide/GuideManageStories";
+import AdminPrivate from "../Private/AdminPrivate";
+import GuidePrivate from "../Private/GuidePrivate";
 
 
 export const router=createBrowserRouter([
@@ -79,19 +81,19 @@ export const router=createBrowserRouter([
         // admin route start
         {
             path:'manage-candidates',
-            element:<ManageCandidates/>
+            element:<AdminPrivate><ManageCandidates/></AdminPrivate>
         },
         {
             path:'add-package',
-            element:<AddPackage/>
+            element:<AdminPrivate><AddPackage/></AdminPrivate>
         },
         {
          path:'my-tour',
-         element:<MyAssignedTour/>
+         element:<AdminPrivate><MyAssignedTour/></AdminPrivate>
         },
         {
          path:'add-story',
-         element:<AdminAddStories/>
+         element:<AdminPrivate><AdminAddStories/></AdminPrivate>
         },
 
 // admin route end
@@ -118,20 +120,20 @@ path:'tourist/join-tour-guide',
 element:<JoinTourGuide/>
 },
 // End tourist route 
-
+// guide route start
 {
     path:'guide/my-assigned-tour',
-    element:<MyGuideTour/>
+    element:<GuidePrivate><MyGuideTour/></GuidePrivate>
     },
     {
     path:'guide/add-story',
-    element:<GuideAddStories/>
+    element:<GuidePrivate><GuideAddStories/></GuidePrivate>
     },
     {
     path:'guide/manage-stories',
-    element:<GuideManageStories/>
+    element:<GuidePrivate><GuideManageStories/></GuidePrivate>
     },
-// guide route start
+
 
 // guide route end
         // common router

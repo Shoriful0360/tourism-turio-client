@@ -7,11 +7,15 @@ import TouristMenu from "./Menu/TouristMenu";
 import ProfileMenu from "./Menu/ProfileMenu";
 import { GrLogout } from 'react-icons/gr'
 import useAuth from "../../../hook/useAuth";
+import useRole from "../../../hook/useRole";
+import LoadingSpinner from "../../loading/LoadingSpinner";
 
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false)
+    const {role,isloading}=useRole()
     const {logOut}=useAuth()
+    if(isloading) return <LoadingSpinner></LoadingSpinner>
     const handleToggle = () => {
         setActive(!isActive)
       }
@@ -62,9 +66,12 @@ className={`z-10 md:fixed flex flex-col  justify-between  bg-gray-100 w-64 space
             <div className="flex flex-col justify-between flex-1 mt-6">
               <nav>
                 {/* menu item */}
-                <AdminMenu/>
-                <TourGuideMenu/>
-                <TouristMenu/>
+                {role?.role ==="Admin" &&<AdminMenu/> }
+                {role?.role ==="Guide" &&<TourGuideMenu/> }
+                {role?.role ==="Tourist" &&<TouristMenu/> }
+           
+             
+                
               </nav>
             </div>
 </div>
