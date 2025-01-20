@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 import LoadingSpinner from "../../../component/loading/LoadingSpinner";
 
 
-const ManageProfile = () => {
+const ManageUser = () => {
     const {user,loading}=useState()
     const axiosSecure=useAxiosSecure()
     const {data:users,isLoading,refetch}=useQuery({
@@ -53,4 +53,4 @@ const ManageProfile = () => {
     );
 };
 
-export default ManageProfile;
+export default ManageUser;

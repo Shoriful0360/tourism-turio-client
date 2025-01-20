@@ -34,6 +34,7 @@ const AddPackage = () => {
     }
     return (
         <div>
+            <h1 className="text-center text-xl font-semibold">Add Package</h1>
             <AddPackageForm handleSubmitForm={handleSubmitForm} loading={loading} setImgUpload={setImgUpload} imgUpload={imgUpload} />
         </div>
     );

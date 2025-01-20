@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async'
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
 import useRole from "../../../hook/useRole";
+import Statistic from "../Admin/Statistic";
 const Profile = () => {
     const {user,loading,resetPassword}=useAuth()
     const {role,isLoading}=useRole()
@@ -30,12 +31,20 @@ const Profile = () => {
       });
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div>
+           
+        {
+          role?.role ==='Admin' && <div>
+          <h1 className="text-center text-xl">Wellcome</h1>
+          <Statistic/>
+          </div>
+        }
+          <div className='flex justify-center flex-col items-center h-screen'>
+      
+        <div className='bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-3/5'>
         <Helmet>
           <title>Dashboard | Profile</title>
         </Helmet>
-        <div className='bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-3/5'>
-        <h1 className="text-center text-xl">Wellcome</h1>
           <img
             alt='cover photo'
             src='https://i.ibb.co.com/dGxfS36/Natural-Facebook-Cover-Photo.jpg'
@@ -87,6 +96,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+        </div>
     );
 };
 

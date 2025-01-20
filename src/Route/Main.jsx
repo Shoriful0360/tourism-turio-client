@@ -13,7 +13,7 @@ import Gallery from "../component/PackageDetails/Gallery/Gallery";
 import DashboardLayout from "../layout/DashboardLayout";
 import Profile from "../page/Dashboard/Common/Profile";
 import AuthPrivate from "../Private/AuthPrivate";
-import ManageProfile from "../page/Dashboard/Admin/ManageProfile";
+
 import AddPackage from "../page/Dashboard/Admin/AddPackage";
 import MyAssignedTour from "../page/Dashboard/Admin/MyAssignedTour";
 import TouristBooking from "../page/Dashboard/Tourist/TouristBooking";
@@ -29,6 +29,7 @@ import GuideManageStories from "../page/Dashboard/Guide/GuideManageStories";
 import AdminPrivate from "../Private/AdminPrivate";
 import GuidePrivate from "../Private/GuidePrivate";
 import AdminManageStory from "../page/Dashboard/Admin/AdminManageStory";
+import ManageUser from "../page/Dashboard/Admin/ManageUser";
 
 
 export const router=createBrowserRouter([
@@ -83,6 +84,10 @@ export const router=createBrowserRouter([
         {
             path:'manage-candidates',
             element:<AdminPrivate><ManageCandidates/></AdminPrivate>
+        },
+        {
+            path:'manage-user',
+            element:<AdminPrivate><ManageUser/></AdminPrivate>
         },
         {
             path:'manage-story',
