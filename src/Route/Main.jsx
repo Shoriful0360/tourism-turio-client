@@ -30,6 +30,7 @@ import GuidePrivate from "../Private/GuidePrivate";
 import AdminManageStory from "../page/Dashboard/Admin/AdminManageStory";
 import ManageUser from "../page/Dashboard/Admin/ManageUser";
 import MyAssignedTour from "../page/Dashboard/Guide/MyAssignedTour";
+import StoryDetails from "../page/storypage/StoryDetails";
 
 
 export const router=createBrowserRouter([
@@ -46,6 +47,10 @@ export const router=createBrowserRouter([
             path:'/package-details/:id',
             element:<PackageDetails/>,
         },
+        {
+            path:'/story-details/:id',
+            element:<StoryDetails/>
+        }
         // {
         //     path:'/package-details/:id',
         //     element:<PackageDetails/>,

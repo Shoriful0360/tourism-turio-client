@@ -1,12 +1,14 @@
 import React from 'react';
 import { CiCalendarDate } from 'react-icons/ci';
+import { Link } from 'react-router-dom';
 
-const StoryCard = () => {
+const StoryCard = ({story}) => {
+  const {title,description,image,_id}=story || {}
     return (
         <div className="card group  mt-6  shadow-xl">
         <figure className="rounded-md relative px-3">
           <img
-            src="https://wanderers.qodeinteractive.com/wp-content/uploads/2018/02/blog-post-4-m.jpg"
+            src={image[0]}
             className=" rounded-lg group-hover:scale-[1.05] w-full object-cover object-top transition-all h-60"
             alt="Shoes" />
       
@@ -14,7 +16,8 @@ const StoryCard = () => {
         </figure>
         <div className=" px-3">
           <h2 className="card-title">
-      Discover Serenity, Exploration, and Enlightenment.</h2>
+      {title}</h2>
+      
       
       
     <div className='flex justify-between'>
@@ -27,7 +30,9 @@ const StoryCard = () => {
     </div>
  
       <div className="divider"></div>
+<p>{description.substring(0,150)}...</p>
 
+<Link to={`/story-details/${_id}`}><button className='text-secondary mt-2'>Read More</button></Link>
           
         </div>
       </div> 
