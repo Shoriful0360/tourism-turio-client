@@ -26,6 +26,7 @@ try{
   const {data}=await axiosSecure.post('/stories',formData)
  if(data.insertedId){
    toast.success("Added your story")
+   form.reset()
 navigate('/dashboard/guide/manage-stories')
  }
 }catch (err){
@@ -104,17 +105,10 @@ navigate('/dashboard/guide/manage-stories')
 
                                     <div className='flex flex-wrap gap-3'>
                                     {images?.map((img,idx)=><div key={idx} >
-                                          <img className='w-20 h-10' src={img} alt='' />
+                                          <img className='w-28 h-16' src={img} alt='' />
                                         </div>)}
                                     </div>
-                                        {/* {
-                                          imgUpload && imgUpload?.image?.size &&(
-                                            <div className='flex gap-5 items-center'>
-                                            <img className='w-20' src={imgUpload?.url} alt='' />
-                                            <p>Image Size: {imgUpload?.image?.size} Bytes</p>
-                                          </div>
-                                        )
-                                        } */}
+                                       
                          
                           {/* Description */}
                           <div className='space-y-1 text-sm'>

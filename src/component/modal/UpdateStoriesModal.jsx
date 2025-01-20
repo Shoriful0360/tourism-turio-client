@@ -36,7 +36,7 @@ const formData={title,image,description,email:user?.email}
 try{
   const {data}=await axiosSecure.put(`/stories/${_id}`,formData)
   console.log(data)
- if(data.modified){
+ if(data.modifiedCount ){
    toast.success("Added your story")
 navigate('/dashboard/guide/manage-stories')
  }

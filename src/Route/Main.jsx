@@ -148,7 +148,7 @@ element:<JoinTourGuide/>
 // guide route end
         // common router
         {
-            path:'profile',
+           index:true,
             element:<Profile/>
         }
     ]

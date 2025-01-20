@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ProfileMenu = () => {
     return (
         <div>
-           <Link to={'/dashboard/profile'}>
+           <Link to={'/dashboard'}>
            <h1  className='ml-4 flex items-center gap-4'><IoMdSettings /> Profile</h1>
            </Link>
         </div>
