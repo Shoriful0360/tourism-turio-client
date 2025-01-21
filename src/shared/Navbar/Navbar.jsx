@@ -15,7 +15,7 @@ const Navbar = () => {
       <NavLink to={''} className={'hover:text-green'}>Home</NavLink>
         <NavLink to={'/trip'} className={'hover:text-green'}>Trips</NavLink>
         <NavLink to={'/all-story'} className={'hover:text-green'}>Community</NavLink>
-        <NavLink to={''} className={'hover:text-green'}>About Us</NavLink>
+        <NavLink to={'/about-us'} className={'hover:text-green'}>About Us</NavLink>
       </div>
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">

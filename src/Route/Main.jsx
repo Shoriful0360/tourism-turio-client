@@ -33,6 +33,7 @@ import MyAssignedTour from "../page/Dashboard/Guide/MyAssignedTour";
 import StoryDetails from "../page/storypage/StoryDetails";
 import AllStory from "../page/all story/AllStory";
 import Trips from "../page/Trips/Trips";
+import AboutUs from "../page/about us/AboutUs";
 
 
 export const router=createBrowserRouter([
@@ -52,6 +53,10 @@ export const router=createBrowserRouter([
         {
             path:'/trip',
               element:<Trips/>
+          },
+        {
+            path:'/about-us',
+              element:<AboutUs/>
           },
         {
             path:'/package-details/:id',
