@@ -18,7 +18,7 @@ const form=e.target;
 const title=form.title.value;
 const image=images;
 const description=form.description.value;
-const formData={title,image,description,email:user?.email}
+const formData={title,image,description,email:user?.email,like:0}
  
 try{
   const {data}=await axiosSecure.post('/stories',formData)

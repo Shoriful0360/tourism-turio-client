@@ -4,15 +4,16 @@ import { FiGithub } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 
-const Guider = () => {
+const Guider = ({guide}) => {
+  const {name,email,image}=guide || {}
     return (
         <div>
           <div className="  group mt-4 shadow-2xl">
   <figure className="relative  pt-4">
     <img
-      src="https://turio-wp.b-cdn.net/wp-content/uploads/2022/11/tour-guide-three.jpg"
+      src={image}
       alt="Shoes"
-      className="rounded-xl h-60 w-full " />
+      className="rounded-xl object-cover object-center h-60 w-full " />
       <button className="border-none btn left-4 absolute bottom-2 bg-green text-white text-lg">Contact</button>
      {/* link  */}
      <div className=" ">
@@ -30,7 +31,7 @@ const Guider = () => {
      </div>
   </figure>
   <div className="card-body items-center text-center">
-    <h2 className="card-title">Md. Halim Mia</h2>
+    <h2 className="card-title">{name}</h2>
     <p>Tour Guide</p>
    
   </div>

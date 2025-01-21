@@ -3,7 +3,8 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 
 const BookingTableRows = ({idx,booking,refetch}) => {
-    const {date,totalPrice,guiderName,_id,packageImg,packageName,status}=booking || {}
+
+    const {date,totalPrice,guiderName,_id,packageImg,packageName,status,  guiderImg}=booking || {}
     const axiosSecure=useAxiosSecure()
     const handleCancelBooking=async()=>{
       Swal.fire({
@@ -41,6 +42,7 @@ const BookingTableRows = ({idx,booking,refetch}) => {
   {idx +1}
      </label>
    </th>
+   <td>
    <div className="flex items-center gap-3">
             <div className="avatar">
               <div className="mask  rounded-md h-12 w-12">
@@ -54,9 +56,21 @@ const BookingTableRows = ({idx,booking,refetch}) => {
          
             </div>
           </div>
+   </td>
    <td>
-   {guiderName}
-
+   <div className="flex items-center gap-3">
+            <div className="avatar">
+              <div className="mask  rounded-md h-12 w-12">
+                <img
+                  src={guiderImg}
+                  alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div>
+            <div>
+              <div className="font-bold">{guiderName}</div>
+         
+            </div>
+          </div>
    </td>
    <td>{date}</td>
    <td>

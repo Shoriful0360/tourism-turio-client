@@ -1,7 +1,23 @@
+import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import useAuth from "../../../hook/useAuth";
+import useAxiosSecure from "../../../hook/useAxiosSecure";
+import AssignedDataRow from "../../../component/dashboard/TableRows/AssignedDataRow";
 
 
 const MyAssignedTour = () => {
+const {user}=useAuth()
+console.log(user?.displayName)
+const axiosSecure=useAxiosSecure()
+  const{data:touristData}=useQuery({
+    queryKey:['assignedTour',user?.email],
+    enabled:!! user?.email,
+    queryFn:async()=>{
+      const {data}=await  axiosSecure.get(`/my-assigned-tour/${user?.email}`)
+      return data
+    }
+  })
+  
     return (
         <div className='container mx-auto px-4 sm:px-8'>
         <Helmet>
@@ -15,18 +31,20 @@ const MyAssignedTour = () => {
         <th>
          
         </th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Status</th>
+        <th>Package Name</th>
+        <th>Tourist Name</th>
+        <th>Tour Date</th>
+        <th>Tour Price</th>
         <th>Update Role</th>
+        <th>Accept</th>
+        <th>Reject</th>
         
       </tr>
     </thead>
     <tbody>
-        {/* {
-            users?.map((userData,idx)=><UserDateRow key={idx} idx={idx} userData={userData} refetch={refetch} />)
-        } */}
+        {
+          touristData?.map((tourData,idx)=><AssignedDataRow key={tourData._id} idx={idx} tourData={tourData}/>)
+        }
    
     
     </tbody>

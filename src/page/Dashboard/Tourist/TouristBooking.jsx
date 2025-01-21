@@ -18,7 +18,7 @@ const {data}=await axiosSecure.get(`/tourist/${user?.email}`)
 return data
         }
     })
-console.log(bookingData)
+
 if(isLoading) return <LoadingSpinner/>
     return (
         <div className='container mx-auto px-4 sm:px-8'>
@@ -34,7 +34,7 @@ if(isLoading) return <LoadingSpinner/>
          
         </th>
         <th>Package Name</th>
-        <th>Tour Guide Name</th>
+        <th>Tour Guide </th>
         <th>Date</th>
         <th>Price</th>
         <th>Status</th>

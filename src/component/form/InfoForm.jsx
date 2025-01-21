@@ -24,17 +24,17 @@ const {data:guiderData}=useQuery({
     return data
   }
 })
-
+// console.log(guiderData)
   const handleBookingForm=async(e)=>{
 e.preventDefault()
 const form=e.target;
 const phone=form.phone.value;
 const date=form.date.value;
 const person=parseInt(form.person.value);
-const guiderName=form.guiderName.value;
+const guiderEmail=form.guiderName.value;
 const message=form.message.value;
 const totalPrice=person * parseInt(price)
-const formData={packageName:name,packageImg:image, name:user?.displayName,email:user?.email,phone,date,person,guiderName,totalPrice,message,status:'Pending'}
+const formData={packageName:name,packageImg:image, name:user?.displayName,email:user?.email,phone,date,person,guiderEmail,totalPrice,message,status:'Pending'}
 
 try{
   await axiosPublic.post('/tourist',formData)
@@ -82,7 +82,7 @@ try{
 <select name="guiderName" className="select  select-bordered w-full lg:max-w-xs">
   <option disabled selected>Select Tour Guider Name</option>
   {
-    guiderData?.map((item,idx)=><option key={idx}>{item?.name}</option>)
+    guiderData?.map((item,idx)=><option value={item?.email} key={idx}>{item?.name}</option>)
   }
 
 

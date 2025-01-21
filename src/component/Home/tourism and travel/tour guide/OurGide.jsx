@@ -1,7 +1,22 @@
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../../hook/useAxiosPublic";
 import Guider from "./Guider";
+import LoadingSpinner from "../../../loading/LoadingSpinner";
 
 
 const OurGide = () => {
+    const axiosPublic=useAxiosPublic()
+  // get package data
+  const {data:guideData,isLoading}=useQuery({
+    queryKey:['guider'],
+    queryFn:async()=>{
+      const {data}=await axiosPublic('/user/role')
+      return data
+    }
+  })
+  
+
+  if(isLoading) return <LoadingSpinner/>
     return (
         <div>
          <div className="text-center space-y-2 md:w-8/12 mt-6 mx-auto">
@@ -11,10 +26,11 @@ const OurGide = () => {
          </div>
          {/* tour guider */}
             <div className="grid md:grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
-            <Guider/>
-            <Guider/>
-            <Guider/>
-            <Guider/>
+                {
+                    guideData?.map(guide=><Guider key={guide._id} guide={guide}/>)
+                }
+        
+          
             </div>
         </div>
     );
