@@ -2,10 +2,12 @@
 import { useQuery } from '@tanstack/react-query';
 import StoryCard from './StoryCard';
 import useAxiosPublic from '../../../hook/useAxiosPublic';
-import { data } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 import LoadingSpinner from '../../loading/LoadingSpinner';
+import useRole from '../../../hook/useRole';
 
 const Story = () => {
+    const {role}=useRole()
     const axiosPublic=useAxiosPublic()
     const {data:storyData,isLoading}=useQuery({
     queryKey:['shareStory'],
@@ -25,16 +27,22 @@ const Story = () => {
 
 
            {/* story card */}
-       <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+       <div className='grid md:grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4'>
         {
             storyData.map(story=><StoryCard key={story._id} story={story}/>)
         }
   
       
        </div>
-       <div className='text-center mt-4'>
-        <button className='btn bg-green text-white border-none'>All Story</button>
-        <button className='btn bg-green text-white border-none ml-4'>Add Story</button>
+       <div className='text-center my-10'>
+        {
+            <Link to={`${  role?.role ==='Tourist' && '/dashboard/tourist/add-story' || role?.role ==='Guide' && '/dashboard/guide/add-story' || role?.role ==='Admin' && '/dashboard/add-story' ||  '/signIn'}`}>  <button className='btn bg-green text-white border-none'>Add Story</button></Link>
+        }
+       
+       
+     
+      
+     <Link to={'/all-story'}>   <button className='btn bg-green text-white border-none ml-4'>All Story</button></Link>
        </div>
         </div>
     );

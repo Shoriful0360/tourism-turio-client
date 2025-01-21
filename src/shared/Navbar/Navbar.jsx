@@ -13,8 +13,8 @@ const Navbar = () => {
   <div className="flex-none">
   <div className="flex gap-5 text-xl uppercase font-medium">
       <NavLink to={''} className={'hover:text-green'}>Home</NavLink>
-        <NavLink to={''} className={'hover:text-green'}>Trips</NavLink>
-        <NavLink to={''} className={'hover:text-green'}>Community</NavLink>
+        <NavLink to={'/trip'} className={'hover:text-green'}>Trips</NavLink>
+        <NavLink to={'/all-story'} className={'hover:text-green'}>Community</NavLink>
         <NavLink to={''} className={'hover:text-green'}>About Us</NavLink>
       </div>
     <div className="dropdown dropdown-end">

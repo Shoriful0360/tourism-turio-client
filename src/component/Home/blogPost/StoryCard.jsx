@@ -1,7 +1,10 @@
 import React from 'react';
 import { CiCalendarDate } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
-
+import {
+  FacebookShareButton,
+  FacebookIcon,
+} from 'react-share';
 const StoryCard = ({story}) => {
   const {title,description,image,_id}=story || {}
     return (
@@ -20,13 +23,23 @@ const StoryCard = ({story}) => {
       
       
       
-    <div className='flex justify-between'>
+    <div className='flex mt-5 justify-between'>
     <h1 className='flex items-center  gap-1 mt-2'>
       <CiCalendarDate />
 
       February,12, 2018
       </h1>
+     <div>
+     <FacebookShareButton
+        url={`http://localhost:5173/story-details/${_id}`}
+        quote={title}
+        hashtag="#AmazingStory"
+        description={description}
+      >
       <button className='bg-green text-white py-2 p-2 rounded-sm'>Share Now</button>
+        {/* <FacebookIcon size={32} round={true} /> */}
+      </FacebookShareButton>
+     </div>
     </div>
  
       <div className="divider"></div>

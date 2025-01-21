@@ -31,6 +31,8 @@ import AdminManageStory from "../page/Dashboard/Admin/AdminManageStory";
 import ManageUser from "../page/Dashboard/Admin/ManageUser";
 import MyAssignedTour from "../page/Dashboard/Guide/MyAssignedTour";
 import StoryDetails from "../page/storypage/StoryDetails";
+import AllStory from "../page/all story/AllStory";
+import Trips from "../page/Trips/Trips";
 
 
 export const router=createBrowserRouter([
@@ -43,6 +45,14 @@ export const router=createBrowserRouter([
             path:'/',
             element:<Home/>
         },
+        {
+            path:'/all-story',
+              element:<AllStory/>
+          },
+        {
+            path:'/trip',
+              element:<Trips/>
+          },
         {
             path:'/package-details/:id',
             element:<PackageDetails/>,
@@ -155,11 +165,13 @@ element:<JoinTourGuide/>
         {
            index:true,
             element:<Profile/>
-        }
+        },
+       
     ]
 },
 {
     path:'signIn',
     element:<SignIn/>
-}
+},
+
 ])

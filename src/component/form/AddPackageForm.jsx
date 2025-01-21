@@ -1,7 +1,7 @@
 
 import { TbFidgetSpinner } from "react-icons/tb"
 import { shortImageName } from "../../utilites/shortImgName";
-const AddPackageForm = ({handleSubmitForm,loading,setImgUpload,imgUpload}) => {
+const AddPackageForm = ({handleSubmitForm,loading,setImgUpload,imgUpload,images,handleImageUpload}) => {
 
     return (
         <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
@@ -131,42 +131,53 @@ const AddPackageForm = ({handleSubmitForm,loading,setImgUpload,imgUpload}) => {
                 </div>
               </div>
               {/* Image */}
-              <div className=' p-4  w-full  m-auto rounded-lg flex-grow'>
-                <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg'>
-                  <div className='flex flex-col w-max mx-auto text-center'>
-                    <label>
-                      <input
-                      onChange={(e)=> 
-                        setImgUpload({
-                          image:e.target.files[0],
-                        url:URL.createObjectURL(e.target.files[0])
-                        })}
-                        className='text-sm cursor-pointer w-36 hidden'
-                        type='file'
-                        name='image'
-                        id='image'
-                        accept='image/*'
-                      
-                      />
-                      <div className='bg-lime-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-lime-500'>
-                       {/* {imgUpload.image.name} */}
-                 {shortImageName(imgUpload?.image?.name)}
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
+           
                 {/* image size */}
-                {
+                {/* {
                   imgUpload && imgUpload?.image?.size &&(
                     <div className='flex gap-5 items-center'>
                     <img className='w-20' src={imgUpload?.url} alt='' />
                     <p>Image Size: {imgUpload?.image?.size} Bytes</p>
                   </div>
                 )
-                }
+                } */}
                 
               {/* Submit Button */}
+
+              <div className=' p-4  w-full  m-auto rounded-lg flex-grow'>
+                          <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg'>
+                            <div className='flex flex-col w-max mx-auto text-center'>
+                              <label>
+                                <input
+                                onChange={handleImageUpload}
+                                // onChange={(e)=> 
+                                //   handleImageUpload({
+                                //     image:e.target.files[0],
+                                //   // url:URL.createObjectURL(e.target.files[0])
+                                //   })}
+                                  className='text-sm cursor-pointer w-36 hidden'
+                                  type='file'
+                                  name='image'
+                                  id='image'
+                                  accept='image/*'
+                                
+                                />
+                                <div className='bg-lime-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-lime-500'>
+                                 {/* {imgUpload.image.name} */}
+                                  Upload Image
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                          {/* image size */}
+
+                      <div className='flex flex-wrap gap-3'>
+                      {images?.map((img,idx)=><div key={idx} >
+                            <img className='w-28 h-16' src={img} alt='' />
+                          </div>)}
+                      </div>
+
               <button
                 type='submit'
                 className='w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-lime-500 '
