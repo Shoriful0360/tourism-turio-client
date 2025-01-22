@@ -34,6 +34,7 @@ import StoryDetails from "../page/storypage/StoryDetails";
 import AllStory from "../page/all story/AllStory";
 import Trips from "../page/Trips/Trips";
 import AboutUs from "../page/about us/AboutUs";
+import Payment from "../payment/Payment";
 
 
 export const router=createBrowserRouter([
@@ -148,6 +149,10 @@ element:<TouristMangeStories/>
 {
 path:'tourist/join-tour-guide',
 element:<JoinTourGuide/>
+},
+{
+path:'tourist-payment',
+element:<Payment/>
 },
 // End tourist route 
 // guide route start

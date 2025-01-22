@@ -37,6 +37,7 @@ if(isLoading) return <LoadingSpinner/>
         <th>Tour Guide </th>
         <th>Date</th>
         <th>Price</th>
+        <td>TransactionId</td>
         <th>Status</th>
         <th>Pay</th>
         <th>Cancel</th>

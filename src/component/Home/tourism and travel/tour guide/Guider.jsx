@@ -14,7 +14,7 @@ const Guider = ({guide}) => {
       src={image}
       alt="Shoes"
       className="rounded-xl object-cover object-center h-60 w-full " />
-      <button className="border-none btn left-4 absolute bottom-2 bg-green text-white text-lg">Contact</button>
+      <Link to={`mailto:${email}?subject=Hello&body=I%20would%20like%20to%20reach%20out%20to%20you.`}><button className="border-none btn left-4 absolute bottom-2 bg-green text-white text-lg">Contact</button></Link>
      {/* link  */}
      <div className=" ">
      <div className="flex flex-col absolute top-16 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all group-hover:duration-700  right-4 gap-3">

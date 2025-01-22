@@ -1,10 +1,22 @@
 import { GiCancel } from "react-icons/gi";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import PaymentModal from "../../modal/PaymentModal";
 
 const BookingTableRows = ({idx,booking,refetch}) => {
+  const {totalPrice,guiderImg,date,guiderName,status,transactionId,packageImg,packageName}=booking || {}
+ let [isOpen, setIsOpen] = useState(true)
 
-    const {date,totalPrice,guiderName,_id,packageImg,packageName,status,  guiderImg}=booking || {}
+    function open() {
+      setIsOpen(true)
+    }
+  
+    function close() {
+      setIsOpen(false)
+    }
+  
     const axiosSecure=useAxiosSecure()
     const handleCancelBooking=async()=>{
       Swal.fire({
@@ -74,8 +86,9 @@ const BookingTableRows = ({idx,booking,refetch}) => {
    </td>
    <td>{date}</td>
    <td>
-    {totalPrice}
+    ${totalPrice}
    </td>
+   <td>{transactionId?transactionId :'empty'}</td>
    <td className='px-5 py-5 border-b   border-gray-200 bg-white text-sm'>
    
  {
@@ -86,12 +99,17 @@ const BookingTableRows = ({idx,booking,refetch}) => {
  }
  </td>
 
- <td className="cursor-pointer">pay</td>
+ <td className="cursor-pointer ">
+ <button disabled={status !=='Pending'} onClick={open} className="bg-orange-300  p-1 text-xl rounded-sm text-white">Pay</button>
+ </td>
  <td  >
-<button onClick={handleCancelBooking} disabled={status !=="Pending"}> <GiCancel disab className="bg-red-700  p-1 text-xl w-7 h-7 rounded-sm text-white" /></button>
+<button onClick={handleCancelBooking}> <GiCancel disab className="bg-red-700  p-1 text-xl w-9 h-9 rounded-sm text-white" /></button>
  </td>
  </tr>
+<div>
+<PaymentModal open={open} close={close} isOpen={isOpen} booking={booking} refetch={refetch} />
 
+</div>
    </>
     );
 };
