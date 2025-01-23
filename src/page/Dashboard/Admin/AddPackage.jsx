@@ -28,6 +28,7 @@ const AddPackage = () => {
             const {data}=await axiosSecure.post(`/admin/package/${user?.email}`,initialData)
             if(data.insertedId){
                 toast.success('Success! Added your  package')
+                setImages([])
             }
            e.target.reset()
            setImgUpload({image: { name: 'Upload Image' }})

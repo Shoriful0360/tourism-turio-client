@@ -17,7 +17,7 @@ const axiosSecure=useAxiosSecure()
       }  
     })
    if(isLoading) return <LoadingSpinner/>
-   const {totalPackage,totalGuide,totalstories,totalClient}=statistic || {}
+   const {totalPackage,totalGuide,totalstories,totalClient,revenue}=statistic || {}
     return (
         <div>
         <div className='mt-12'>
@@ -35,7 +35,7 @@ const axiosSecure=useAxiosSecure()
                   Total Payment
                 </p>
                 <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
-                  $120
+                  ${revenue}
                 </h4>
               </div>
             </div>

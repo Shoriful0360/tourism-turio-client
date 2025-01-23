@@ -3,7 +3,7 @@
 const Location = ({item}) => {
     return (
         <div>
-           location 
+       <li className="text-xl font-bold">{item.location}</li>
         </div>
     );
 };

@@ -27,7 +27,7 @@ const Story = () => {
 
 
            {/* story card */}
-       <div className='grid md:grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4'>
+       <div className='grid  md:grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4'>
         {
             storyData.map(story=><StoryCard key={story._id} refetch={refetch} story={story}/>)
         }

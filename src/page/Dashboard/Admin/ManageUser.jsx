@@ -4,22 +4,34 @@ import useAxiosSecure from "../../../hook/useAxiosSecure";
 import UserDateRow from "../../../component/dashboard/TableRows/UserDateRow";
 import { Helmet } from "react-helmet-async";
 import LoadingSpinner from "../../../component/loading/LoadingSpinner";
+import Pagination from "./Pagination";
+
 
 
 const ManageUser = () => {
     const {user,loading}=useState()
     const[filter,setFilter]=useState("")
     const [search,setSearch]=useState('')
-    console.log(search)
+    const[itemsPerPages,setItemsPerPages]=useState(10)
+    const[currentPages,setCurrentPages]=useState(0)
     const axiosSecure=useAxiosSecure()
     const {data:users,isLoading,refetch}=useQuery({
         queryKey:['user',filter],
         queryFn:async()=>{
-            const {data}=await axiosSecure.get(`/user?filter=${filter}&search=${search}`)
+            const {data}=await axiosSecure.get(`/user?filter=${filter}&search=${search}$page=${currentPages}$size=${itemsPerPages}`)
             return(data)
         }
     })
-   if(isLoading) return <LoadingSpinner/>
+
+    // total user
+    const {data:countUser,isLoading:pagiLoading}=useQuery({
+      queryKey:['countUser'],
+      queryFn:async()=>{
+          const {data}=await axiosSecure.get(`/user/count`)
+          return(data)
+      }
+  })
+   if(isLoading || pagiLoading) return <LoadingSpinner/>
 
   //  handle search
   const handleSearch=(value)=>{
@@ -27,10 +39,11 @@ const ManageUser = () => {
     refetch()
   }
     return (
-        <div className='container mx-auto px-4 sm:px-8'>
+        <div className='container  mx-auto px-4 sm:px-8'>
         <Helmet>
           <title>Manage Users</title>
         </Helmet>
+        <div>
         <div className="md:flex justify-around my-4">
         <select onChange={(e)=>setFilter(e.target.value)} className="select select-bordered w-full max-w-xs">
   <option disabled selected>Filter Role?</option>
@@ -79,6 +92,13 @@ const ManageUser = () => {
   
 
   </table>
+  {/* pagination */}
+
+</div>
+        </div>
+
+<div className="my-10">
+<Pagination setItemsPerPages={setItemsPerPages} itemsPerPages={itemsPerPages} setCurrentPages={setCurrentPages} currentPages={currentPages} countUser={countUser}/>
 </div>
       </div>
     );

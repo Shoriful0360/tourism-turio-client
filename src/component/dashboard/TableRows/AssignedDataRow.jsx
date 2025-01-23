@@ -2,12 +2,19 @@ import React from 'react';
 import { FcAcceptDatabase } from 'react-icons/fc';
 import { ImCancelCircle } from 'react-icons/im';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hook/useAxiosSecure';
+import toast from 'react-hot-toast';
 
-const AssignedDataRow = ({tourData,idx,}) => {
+const AssignedDataRow = ({tourData,idx,refetch}) => {
 
-const{packageName,name,status,totalPrice,date}=tourData || {}
-const handleAccept=()=>{
-
+const{packageName,name,status,totalPrice,date,_id}=tourData || {}
+const axiosSecure=useAxiosSecure()
+const handleAccept=async()=>{
+  const {data}=await axiosSecure.patch(`/guide/accept/${_id}`)
+  if(data.modifiedCount){
+    toast.success('Success! accept Request')
+    refetch()
+  }
 }
 
 const handleReject=()=>{
@@ -22,17 +29,17 @@ const handleReject=()=>{
       }).then(async(result) => {
         if (result.isConfirmed) {
 
-          // const {data}=await axiosSecure.delete(`/tourist/booking/${_id}`)
-          // if(data.deletedCount){
-          //   Swal.fire({
-          //     position: "top-center",
-          //     icon: "success",
-          //     title: "Your work has been saved",
-          //     showConfirmButton: false,
-          //     timer: 1500
-          //   });
-          //   refetch()
-          // }
+          const {data}=await axiosSecure.patch(`/guide/reject/${_id}`)
+          if(data.modifiedCount){
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Success,Reject Request",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            refetch()
+          }
   
         
         }
@@ -56,7 +63,12 @@ const handleReject=()=>{
                </td>
                <td>{date}</td>
              <td>${totalPrice}</td>
-             <td>{status}</td>
+             <td 
+             className={`${status ==='Pending' && 'text-yellow-400' 
+             || status ==='Accept' && 'text-green' 
+             || status ==='In Review' && 'text-orange-500'
+             || status ==='Reject' && 'text-red-600'
+             }`}>{status}</td>
                <td>
                 <button onClick={handleAccept} > <FcAcceptDatabase  disab className="bg-green  p-1 text-xl w-7 h-7 rounded-sm text-white" /></button>
             

@@ -6,6 +6,7 @@ import OurGide from './tour guide/OurGide';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hook/useAxiosPublic';
 import LoadingSpinner from '../../loading/LoadingSpinner';
+import { Link } from 'react-router-dom';
 const TourismTravel = () => {
 const axiosPublic=useAxiosPublic()
   // get package data
@@ -31,12 +32,15 @@ const axiosPublic=useAxiosPublic()
   </div>
 
     <TabPanel>
-     <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
+     <div className='grid md:grid-cols-2 lg:grid-cols-3  gap-4'>
      {
       packages?.map(item=><Package key={item._id} item={item}></Package>)
      }
- 
+
      </div>
+     <div className='flex justify-center my-6'>
+  <Link to={'/trip'}><button className="btn bg-green text-white">All Package</button></Link>
+ </div>
     </TabPanel>
     <TabPanel>
     <OurGide></OurGide>

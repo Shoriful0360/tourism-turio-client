@@ -1,12 +1,15 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import useAuth from '../../hook/useAuth';
 import { imageUpload } from '../../utilites/ImageUpload';
+import axios from 'axios';
+import useAxiosSecure from '../../hook/useAxiosSecure';
+import toast from 'react-hot-toast';
 
 
 const UpdateProfileModal = ({ isOpen, setIsOpen }) => {
 
 const {user,profileUpdate,setLoading}=useAuth()
-
+const axiosSecure=useAxiosSecure()
 const handleUpdateProfile=async(e)=>{
   e.preventDefault()
   const form=e.target;
@@ -15,8 +18,17 @@ const handleUpdateProfile=async(e)=>{
   const imageFile={image}
   const imgUpload=await imageUpload(imageFile)
   if(imgUpload){
-    profileUpdate(name,imgUpload)
-    setLoading(false)
+
+    try{
+      profileUpdate(name,imgUpload)
+ 
+      await axiosSecure.patch(`/profile/update/${user?.email}`,{name:name,image:imgUpload})
+      toast.success('Successfully! update profile')
+      setLoading(false)
+    }catch (err){
+console.log(err)
+    }
+  
   }
   
 }

@@ -10,7 +10,7 @@ const Trips = () => {
   const {data:packages,isLoading}=useQuery({
     queryKey:['package'],
     queryFn:async()=>{
-      const {data}=await axiosPublic('/package')
+      const {data}=await axiosPublic('/all-package')
       return data
     }
   })

@@ -6,7 +6,7 @@ import { useState } from "react";
 import PaymentModal from "../../modal/PaymentModal";
 
 const BookingTableRows = ({idx,booking,refetch}) => {
-  const {totalPrice,guiderImg,date,guiderName,status,transactionId,packageImg,packageName}=booking || {}
+  const {totalPrice,guiderImg,date,guiderName,status,transactionId,packageImg,packageName,_id}=booking || {}
  let [isOpen, setIsOpen] = useState(true)
 
     function open() {
@@ -18,6 +18,8 @@ const BookingTableRows = ({idx,booking,refetch}) => {
     }
   
     const axiosSecure=useAxiosSecure()
+
+    //delet booking
     const handleCancelBooking=async()=>{
       Swal.fire({
         title: "Are you sure?",
@@ -93,7 +95,11 @@ const BookingTableRows = ({idx,booking,refetch}) => {
    
  {
    status?
-    <p className={` ${status==='Pending'?'text-yellow-400' :'text-green'} whitespace-no-wrap`}>{status}</p>
+    <p  className={`${status ==='Pending' && 'text-yellow-400' 
+      || status ==='Accept' && 'text-green' 
+      || status ==='In Review' && 'text-orange-500'
+      || status ==='Reject' && 'text-red-600'
+      }`}>{status}</p>
    :
    <p className='text-red-500'>Unavilable</p>
  }

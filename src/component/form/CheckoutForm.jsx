@@ -5,7 +5,7 @@ import useAuth from '../../hook/useAuth';
 import toast from 'react-hot-toast'
 
 const CheckoutForm = ({open,close,booking,refetch}) => {
-  const{totalPrice,_id}=booking || {}
+  const{totalPrice,_id,packageName}=booking || {}
   const {user}=useAuth()
   const [error,setError]=useState()
   const[clientSecret,setClientSecret]=useState('')
@@ -65,6 +65,14 @@ if(totalPrice>0){
       
         
         if(paymentIntent.status ==='succeeded'){
+          const paymentInfo={
+            transactionId:paymentIntent.id,
+            email:user?.email,
+            packageName:packageName,
+            bookingId:_id,
+            price:totalPrice,
+          }
+          await axiosSecure.post(`/payment`,paymentInfo)
          await axiosSecure.patch(`/booking/payment/${_id}`,{transactionId:paymentIntent.id})
          .then(res=>{
           if(res.data.modifiedCount){
