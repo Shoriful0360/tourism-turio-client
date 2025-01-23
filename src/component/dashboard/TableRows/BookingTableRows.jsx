@@ -7,7 +7,7 @@ import PaymentModal from "../../modal/PaymentModal";
 
 const BookingTableRows = ({idx,booking,refetch}) => {
   const {totalPrice,guiderImg,date,guiderName,status,transactionId,packageImg,packageName,_id}=booking || {}
- let [isOpen, setIsOpen] = useState(true)
+ let [isOpen, setIsOpen] = useState(false)
 
     function open() {
       setIsOpen(true)

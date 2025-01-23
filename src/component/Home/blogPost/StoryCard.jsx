@@ -29,7 +29,7 @@ refetch()
            
         </figure>
         <div className=" px-3">
-          <h2 className="card-title">
+          <h2 className="card-title ">
       {title}</h2>
       
       {/* like */}

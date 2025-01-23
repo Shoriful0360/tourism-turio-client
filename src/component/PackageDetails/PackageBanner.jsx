@@ -58,7 +58,7 @@ const PackageBanner = ({item}) => {
         <div className="">
         <Tabs>
   <div className='text-center font-bold text-xl mt-8'>
-  <TabList className={'grid  grid-cols-2 md:w-11/12 -mt-24 lg:w-8/12 mx-auto md:grid-cols-4'}>
+  <TabList className={'flex flex-wrap md:w-11/12 -mt-24 lg:w-8/12 mx-auto'}>
       <Tab><div className="flex items-center cursor-pointer border-r-2 font-serif bg-[#F6F6F6] p-4 uppercase  gap-2">
             <FaInfoCircle className="text-green" />
                 <p className="text-black">Information</p>
@@ -79,7 +79,7 @@ const PackageBanner = ({item}) => {
     </TabList>
   </div>
 
-<div className="flex md:w-8/12 mt-10 mx-auto gap-4">
+<div className="md:flex md:w-8/12 mt-10 mx-auto gap-4">
   <div className="flex-1">
   <TabPanel>
     <Infromation item={item}/>

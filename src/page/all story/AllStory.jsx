@@ -6,7 +6,7 @@ import StoryCard from "../../component/Home/blogPost/StoryCard";
 
 const AllStory = () => {
     const axiosPublic=useAxiosPublic()
-    const {data:storyData,isLoading}=useQuery({
+    const {data:storyData,isLoading,refetch}=useQuery({
     queryKey:['allStory'],
     queryFn:async()=>{
         const {data}=await axiosPublic('/all-story')
@@ -18,7 +18,7 @@ const AllStory = () => {
     return (
         <div className="my-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
            {
-            storyData.map(story=><StoryCard key={(story._id) } story={story}/>)
+            storyData.map(story=><StoryCard refetch={refetch} key={(story._id) } story={story}/>)
            } 
         </div>
     );

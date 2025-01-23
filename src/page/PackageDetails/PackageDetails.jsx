@@ -24,15 +24,7 @@ const {data:item}=useQuery({
     return (
         <div>
             <PackageBanner item={item}/>
-           <div className="md:w-11/12 mt-10  lg:w-8/12 grid gap-4 lg:grid-cols-12 mx-auto">
-           <div className="col-span-8 ">
-          
-
-           </div>
-           {/* <div className="col-span-4">
-        <InfoForm/>
-           </div> */}
-           </div>
+        
         </div>
     );
 };

@@ -11,12 +11,14 @@ import useAxiosPublic from '../../hook/useAxiosPublic';
 import { imageUpload } from '../../utilites/ImageUpload';
 import useAuth from '../../hook/useAuth';
 import toast from 'react-hot-toast';
-
+import { useState } from 'react';
+import { GoEye } from 'react-icons/go';
+import { IoEyeOffOutline } from 'react-icons/io5';
 const SignUp = () => {
   const{createUser,user,setUser,signInWithGoogle,profileUpdate}=useAuth()
   const navigate=useNavigate()
   const axiosSecure=useAxiosPublic()
-
+  const [visible,setVisible]=useState(false)
 
   const {register,handleSubmit,formState: { errors },} = useForm()
 
@@ -89,11 +91,17 @@ const SignUp = () => {
                     {errors.photo?.type==='required' && <span className='text-red-500'>Please choose a photo</span>}
                   </div>
                   {/* password */}
-                  <div className="form-control">
+                  <div className="form-control relative">
                     <label className="label">
                       <span className="label-text text-xl">Password <span className='text-red-500'>*</span></span>
                     </label>
-                    <input type="password"  {...register("password",{ required: true,maxLength:20,
+                    <div className='absolute right-2 top-[60px] cursor-pointer'>
+               {
+                 visible ? <div onClick={()=>setVisible(false)}>  <GoEye></GoEye></div> :<div onClick={()=>setVisible(true)}>  <IoEyeOffOutline></IoEyeOffOutline></div>
+               }
+                                
+             </div>
+                    <input type={visible?'text':'password'}  {...register("password",{ required: true,maxLength:20,
                       minLength:6,
                       pattern:/(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                       })} name='password' placeholder="password" className="input input-bordered"  />
@@ -103,8 +111,7 @@ const SignUp = () => {
                     {errors.password?.type==='pattern' && <span className='text-red-500'>Password at least one uppercase,one lowercase,one number and special character</span>}
                    
                   </div>
-                
-                
+           
                   <div className="form-control mt-6">
                     <button className="btn  bg-[#D1A054B3] text-white">Login</button>
                   </div>

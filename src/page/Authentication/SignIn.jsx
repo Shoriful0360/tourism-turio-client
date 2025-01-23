@@ -1,21 +1,21 @@
 import { FcGoogle } from 'react-icons/fc';
 import loginImg from '../../assets/signIn/Animation - 1736911555967.json'
-import { CiFacebook } from 'react-icons/ci';
-import { VscGithub } from 'react-icons/vsc';
-import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
-import { useEffect, useState } from 'react';
 
+import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
+import { useEffect, useRef, useState } from 'react';
+import { IoEyeOffOutline } from 'react-icons/io5';
+import { GoEye } from 'react-icons/go';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import useAuth from '../../hook/useAuth';
 import toast from 'react-hot-toast';
-
+import Swal from 'sweetalert2'
 
 
 const SignIn = () => {
-  const {signInWithGoogle,userSignIn}=useAuth()
+  const {signInWithGoogle,userSignIn,resetPassword}=useAuth()
     const [visible,setVisible]=useState(true)
-
+const emailRef=useRef()
 const navigate=useNavigate()
 const location=useLocation()
 const from=location.state?.from?.pathname || '/'
@@ -35,7 +35,7 @@ const from=location.state?.from?.pathname || '/'
      toast.success('signUp is successfully')
      navigate(from)
     })
-    .then (err=>{
+    .catch (err=>{
       toast.error(err?.message)
     })
   }
@@ -61,6 +61,45 @@ if (validateCaptcha(value)==true) {
 }
 
   }
+
+  // forgot password
+  const handlePassword=()=>{
+const email=emailRef.current.value;
+if(!email){
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Plese provide a email!",
+    
+  });
+    return;
+}
+else{
+  resetPassword(email)
+   
+    .then(()=>{
+      Swal.fire({
+        title: "Reset password send your email",
+        text:'please check it',
+        width: 600,
+        padding: "3em",
+        color: "#716add",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("/images/nyan-cat.gif")
+          left top
+          no-repeat
+        `
+      });
+    })
+    .catch(()=>{
+        
+    })
+}
+
+
+  }
     return (
         <div>
         <div className="hero bg-logImg min-h-screen">
@@ -75,15 +114,24 @@ if (validateCaptcha(value)==true) {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" name='email' placeholder="email" className="input input-bordered w-full" required />
+          <input type="email" name='email' ref={emailRef}  placeholder="email" className="input input-bordered w-full" required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+          <div className='absolute right-2 top-[50px] cursor-pointer'>
+               {
+                 visible ? <div onClick={()=>setVisible(false)}>  <GoEye></GoEye></div> :<div onClick={()=>setVisible(true)}>  <IoEyeOffOutline></IoEyeOffOutline></div>
+               }
+                                
+             </div>
+          <input type={visible?'text':'password'} name='password' placeholder="password" className="input input-bordered" required />
          
         </div>
+             {/* forgot password */}
+            
+             <h1 onClick={handlePassword} className='cursor-pointer' >forgot password?</h1>
       
         <div className="form-control">
           <label className="label ">

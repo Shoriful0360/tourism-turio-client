@@ -70,7 +70,7 @@ const handleReject=()=>{
              || status ==='Reject' && 'text-red-600'
              }`}>{status}</td>
                <td>
-                <button onClick={handleAccept} > <FcAcceptDatabase  disab className="bg-green  p-1 text-xl w-7 h-7 rounded-sm text-white" /></button>
+                <button disabled= {status==='Pending' || status==='Accept'} onClick={handleAccept} > <FcAcceptDatabase className={`bg-green ${status==='Pending' && 'cursor-not-allowed' || status==='Accept' && 'cursor-not-allowed'}  p-1 text-xl w-7 h-7 rounded-sm text-white`} /></button>
             
                </td>
                <td>

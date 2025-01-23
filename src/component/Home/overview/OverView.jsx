@@ -40,14 +40,14 @@ const OverView = () => {
         </div>
         <div className="flex-1 flex flex-col h-[380px]">
         <motion.img
-        animate={{x:[50,300,50]}}
+        animate={{x:[0,300,0]}}
         transition={{duration:5,delay:1,repeat:Infinity}}
         
          
             src={motion1}
             className="max-w-sm rounded-t-3xl h-52 w-full mb-2 object-cover rounded-br-3xl border-b-4 border-l-4 border-blue-600   shadow-2xl" />
          <motion.img
-         animate={{x:[100,300,100]}}
+         animate={{x:[0,300,0]}}
       transition={{duration:5 ,delay:1,repeat:Infinity,ease:easeIn}}
       src={motion2}
 className='max-w-sm rounded-t-3xl rounded-br-3xl border-b-4 border-l-4 border-green'
@@ -57,7 +57,7 @@ className='max-w-sm rounded-t-3xl rounded-br-3xl border-b-4 border-l-4 border-gr
       </div>
       <div className="overflow-hidden mt-5 relative w-full h-64 bg-gray-100">
       <motion.div
-        className="flex absolute w-[200%]" // 200% width for smooth looping
+        className="flex absolute w-[100%]" // 200% width for smooth looping
         variants={animationVariants}
         animate="animate"
       >
