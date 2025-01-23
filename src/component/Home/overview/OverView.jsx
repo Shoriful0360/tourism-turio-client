@@ -6,6 +6,7 @@ import motion5 from '../../../assets/Image/motion5.jpg'
 import motion6 from '../../../assets/Image/motion6.jpg'
 import motion7 from '../../../assets/Image/im3.jpg'
 import { easeIn, motion } from "motion/react"
+import overView from '../../../assets/video/Cinematic BANGLADESH in 4K _ DJI Mini 2 _ Part 1(720P_60FPS).mp4'
 // import { motion } from "framer-motion";
 const OverView = () => {
 
@@ -20,7 +21,7 @@ const OverView = () => {
         x: {
           repeat: Infinity, // Infinite loop
           repeatType: "loop", // Smooth looping
-          duration: 5, // Adjust scroll speed
+          duration: 20, // Adjust scroll speed
           ease: "linear", // Smooth animation
         },
       },
@@ -33,16 +34,9 @@ const OverView = () => {
         
         <div className="relative w-full flex-1 max-w-2xl mx-auto aspect-w-16 aspect-h-9">
      
-      {/* <video controls src="../../../assets/video/Cinematic BANGLADESH in 4K _ DJI Mini 2 _ Part 1(720P_60FPS).mp4"></video> */}
+      <video controls src={overView}></video>
        
-         <iframe
-          className=" w-full h-[400px]"
-          src='https://www.youtube.com/watch?v=2hgJs1vlqYs'
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+     
         </div>
         <div className="flex-1 flex flex-col h-[380px]">
         <motion.img

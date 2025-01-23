@@ -20,7 +20,7 @@ const Subscripe = () => {
             </p>
             <label className="input input-bordered flex items-center gap-2">
   <input type="text" className="grow" placeholder="Email here..." />
-  <span className="bg-green p-3 -mr-6 w-1/3">Subscripe Now</span>
+  <span className="bg-green md:p-3 -mr-6 w-1/3">Subscripe Now</span>
 </label>
             </div>
            <div>

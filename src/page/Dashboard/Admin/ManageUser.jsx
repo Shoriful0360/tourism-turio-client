@@ -18,7 +18,7 @@ const ManageUser = () => {
     const {data:users,isLoading,refetch}=useQuery({
         queryKey:['user',filter],
         queryFn:async()=>{
-            const {data}=await axiosSecure.get(`/user?filter=${filter}&search=${search}$page=${currentPages}$size=${itemsPerPages}`)
+            const {data}=await axiosSecure.get(`/user?filter=${filter}&search=${search}&page=${currentPages}&size=${itemsPerPages}`)
             return(data)
         }
     })
@@ -98,7 +98,7 @@ const ManageUser = () => {
         </div>
 
 <div className="my-10">
-<Pagination setItemsPerPages={setItemsPerPages} itemsPerPages={itemsPerPages} setCurrentPages={setCurrentPages} currentPages={currentPages} countUser={countUser}/>
+<Pagination setItemsPerPages={setItemsPerPages} itemsPerPages={itemsPerPages} setCurrentPages={setCurrentPages} refetch={refetch} currentPages={currentPages} countUser={countUser}/>
 </div>
       </div>
     );

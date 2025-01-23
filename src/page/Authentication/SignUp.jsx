@@ -33,7 +33,6 @@ const SignUp = () => {
     .then(()=>{
       profileUpdate(data?.name,imgUpload)
       .then((result)=>{
-       console.log(result)
         navigate('/')
       })
 

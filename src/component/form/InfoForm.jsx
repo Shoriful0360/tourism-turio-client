@@ -43,7 +43,7 @@ try{
   navigate('/dashboard/tourist/my-booking')
 
 }catch (err){
- console.log(err)
+ toast.error(err.response.data)
 }
 
   }

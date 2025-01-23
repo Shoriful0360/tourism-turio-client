@@ -7,7 +7,6 @@ import { useState } from "react";
 const AdminPrivate = ({children}) => {
 const {user,loading}=useAuth()
     const{role,isLoading}=useRole()
-    console.log({user,role,loading,isLoading})
     if(loading || isLoading) return <LoadingSpinner/>
     if(user && role?.role==='Admin') return children
     return (

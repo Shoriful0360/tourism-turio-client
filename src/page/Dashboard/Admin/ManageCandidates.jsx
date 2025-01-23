@@ -26,7 +26,7 @@ const ManageCandidates = () => {
     const handleAccept=async(id,email)=>{
         try{
             const {data}=await axiosSecure.patch(`/application/${email}`)
-            console.log(data)
+        
             if(data.modifiedCount)
                 toast.success('Accept Complete')
             await axiosSecure.delete(`/application/${id}`)

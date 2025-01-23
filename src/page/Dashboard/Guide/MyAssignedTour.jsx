@@ -8,7 +8,6 @@ import LoadingSpinner from "../../../component/loading/LoadingSpinner";
 
 const MyAssignedTour = () => {
 const {user}=useAuth()
-console.log(user?.displayName)
 const axiosSecure=useAxiosSecure()
   const{data:touristData,isLoading,refetch}=useQuery({
     queryKey:['assignedTour',user?.email],

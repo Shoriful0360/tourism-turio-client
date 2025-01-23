@@ -35,7 +35,6 @@ const formData={title,image,description,email:user?.email}
  
 try{
   const {data}=await axiosSecure.put(`/stories/${_id}`,formData)
-  console.log(data)
  if(data.modifiedCount ){
    toast.success("Added your story")
 navigate('/dashboard/guide/manage-stories')
@@ -67,7 +66,7 @@ navigate('/dashboard/guide/manage-stories')
 
         // handle delet img
         const handleDeletImg=(url)=>{
-          console.log(url)
+  
           setImages((prevImages) =>prevImages.filter((image)=>image !==url)); 
         }
     return (

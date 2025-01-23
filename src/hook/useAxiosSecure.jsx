@@ -5,7 +5,7 @@ import useAuth from "./useAuth";
 
 
 const instant=axios.create({
-    baseURL:'http://localhost:9000'
+    baseURL:'https://trippo-server.vercel.app'
 })
 
 const useAxiosSecure = () => {

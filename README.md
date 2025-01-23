@@ -1,8 +1,21 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+1. Website Name: Turio
+2. Admin User: shorifulbba0360@gmail.com
+3. password: 123456
+4. live site Url: https://travel-and-tourism-3987f.web.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Feature: 
+ * Integrate a chatbot for 24/7 assistance with travel queries, bookings, or support.
+ * Include a human escalation option for complex issues
+ * Provide 360-degree virtual tours of attractions, accommodations, or cities.
+  * Help users explore before they visit, boosting engagement.
+ * Display special promotions, last-minute deals, or seasonal offers.
+ * Highlight packages for groups, families, or solo travelers 
+ * share your histoy
+
+ * Offer a seamless booking process for flights, hotels, tours, and experiences.
+ * Include real-time availability, secure payment options, and instant confirmations.
+ * Showcase popular destinations with rich visuals, descriptions, and reasons to visit.
+ * Include key information like weather, attractions, and cultural highlights.

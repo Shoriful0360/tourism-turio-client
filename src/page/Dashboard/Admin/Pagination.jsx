@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const Pagination = ({countUser,currentPages,setCurrentPages,itemsPerPages,setItemsPerPages}) => {
+const Pagination = ({countUser,currentPages,setCurrentPages,itemsPerPages,setItemsPerPages,refetch}) => {
    const {userCount}=countUser || {}
    
     const numberOfPages=Math.ceil(userCount/itemsPerPages)
@@ -12,23 +12,27 @@ const Pagination = ({countUser,currentPages,setCurrentPages,itemsPerPages,setIte
 
     // divided button 
     const handleSelect=(e)=>{
-        console.log(e.target.value)
+
         setItemsPerPages(parseInt(e.target.value))
+        refetch()
     }
 
     const handlePage=(value)=>{
         setCurrentPages(value)
+        refetch()
     }
 
     const handlePrev=()=>{
         if(currentPages>0){
             setCurrentPages(currentPages -1)
+            refetch()
         }
     }
 
     const handleNext=()=>{
         if(currentPages<pages.length -1){
             setCurrentPages(currentPages +1)
+            refetch()
         }
     }
 
