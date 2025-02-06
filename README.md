@@ -19,6 +19,8 @@ Feature:
  * Include real-time availability, secure payment options, and instant confirmations.
  * Showcase popular destinations with rich visuals, descriptions, and reasons to visit.
  * Include key information like weather, attractions, and cultural highlights.
+
+
 Tools:
 • React
 • Node.js
