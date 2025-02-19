@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Slider = ({img,title1,title2}) => {
@@ -17,7 +18,7 @@ const Slider = ({img,title1,title2}) => {
             <p className="mb-5">
             Create lasting memories through immersive adventures, vibrant traditions, and the unique flavors of your chosen destination
             </p>
-            <button className="btn bg-green text-white">Explore Now</button>
+           <Link to={'/trip'}> <button className="btn bg-green text-white">Explore Now</button></Link>
           </div>
         </div>
       </div>

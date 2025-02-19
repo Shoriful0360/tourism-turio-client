@@ -28,20 +28,20 @@ const OverView = () => {
     },
   };
     return (
-      <div className="mt-10">
-          <h1 className="text-center text-xl font-bold  my-4">Over View  </h1>
+      <div className="mt-20">
+          <h1 className="text-center text-3xl font-bold underline  my-4">Over View  </h1>
           <div className="md:flex gap-4 justify-center px-10 items-center  p-4">
         
-        <div className="relative w-full flex-1 max-w-2xl mx-auto aspect-w-16 aspect-h-9">
+        <div className="relative w-full flex-1  mx-auto aspect-w-16 aspect-h-9">
      
-      <video controls src={overView}></video>
+      <video controls className='w-full' src={overView}></video>
        
      
         </div>
         <div className="flex-1 flex flex-col h-[380px]">
         <motion.img
         animate={{x:[0,300,0]}}
-        transition={{duration:5,delay:1,repeat:Infinity}}
+        transition={{duration:5,delay:1,ease:'linear', repeat:Infinity}}
         
          
             src={motion1}

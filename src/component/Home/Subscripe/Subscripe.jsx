@@ -4,7 +4,7 @@ const Subscripe = () => {
     return (
         <div
         // todo: title design
-        className="hero bg-cover mt-20   bg-center min-h-screen-70 w-full"
+        className="hero bg-cover mt-20    bg-center min-h-screen-70 w-full"
         style={{
           backgroundImage: `url('https://www.turio-wp.egenslab.com/wp-content/uploads/2022/11/Newsletter-Image.jpg')`,
         }}>

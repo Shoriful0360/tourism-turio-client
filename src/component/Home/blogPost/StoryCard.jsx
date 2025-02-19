@@ -19,7 +19,7 @@ refetch()
 
 
     return (
-        <div className="card group  mt-6  shadow-xl">
+        <div className="card group container mt-6  shadow-xl">
         <figure className="rounded-md relative px-3">
           <img
             src={image[0]}
@@ -28,8 +28,9 @@ refetch()
       
            
         </figure>
+        {/* title */}
         <div className=" px-3">
-          <h2 className="card-title ">
+          <h2 className="card-title  flex-grow-0">
       {title}</h2>
       
       {/* like */}
